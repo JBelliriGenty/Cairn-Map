@@ -21,7 +21,7 @@ thing it keeps is its own Settings page (rooms, kinds, modules switched off),
 in one file, and only when you give it `settings_file`.
 
 Part of the Cairn family ([Cairn IaC](https://github.com/JBelliriGenty/Cairn-IaC),
-Cairn Net, [Cairn NAS](https://github.com/JBelliriGenty/Cairn-NAS)). Python
+[Cairn Net](https://github.com/JBelliriGenty/Cairn-Net), [Cairn NAS](https://github.com/JBelliriGenty/Cairn-NAS)). Python
 standard library only, one file, one page.
 
 ## Run it
