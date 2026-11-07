@@ -1,0 +1,1124 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cairn Map</title>
+<link rel="icon" type="image/png" sizes="64x64" href="data:image/png;base64,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">
+<style>
+/* Cairn design system (github.com/JBelliriGenty/Cairn-NAS, DESIGN.md): tokens and components as in Cairn IaC,
+   then this page's own parts. One hue per family; green/amber/red are kept for states. */
+:root {
+  --bg: #eef1f8; --panel: #ffffff; --fg: #131416; --muted: #5d5f60; --line: #e5e8ef; --control: #8b909a;
+  --track: #eceff5; --primary: #1d1f20; --on-primary: #ffffff; --accent: #4f46e5;
+  --ok: #1e7b4f; --bad: #b42318; --warn: #b54708; --warn-bg: #fef0c7; --sky: #f4f6fb;
+  --f-physical: #64748b; --f-network: #0284c7; --f-hypervisor: #0d9488; --f-services: #db2777; --f-storage: #b45309;
+  --radius: 8px; --radius-sheet: 16px;
+  --duration-stagger: 30ms; --duration-slow: 400ms; --distance-base: 8px; --ease-smooth-out: cubic-bezier(0.22, 1, 0.36, 1);
+  color-scheme: light;
+}
+:root[data-theme="dark"] {
+  --bg: #0c0d12; --panel: #15161c; --fg: #f2f2f3; --muted: #a4a7ab; --line: #2a2c35; --control: #6b7080;
+  --track: #23252e; --primary: #f2f2f3; --on-primary: #111213; --accent: #818cf8;
+  --ok: #3fc07a; --bad: #f97066; --warn: #fdb022; --warn-bg: #2b2111; --sky: #05060b;
+  --f-physical: #94a3b8; --f-network: #38bdf8; --f-hypervisor: #2dd4bf; --f-services: #f472b6; --f-storage: #fbbf24;
+  color-scheme: dark;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0c0d12; --panel: #15161c; --fg: #f2f2f3; --muted: #a4a7ab; --line: #2a2c35; --control: #6b7080;
+    --track: #23252e; --primary: #f2f2f3; --on-primary: #111213; --accent: #818cf8;
+    --ok: #3fc07a; --bad: #f97066; --warn: #fdb022; --warn-bg: #2b2111; --sky: #05060b;
+    --f-physical: #94a3b8; --f-network: #38bdf8; --f-hypervisor: #2dd4bf; --f-services: #f472b6; --f-storage: #fbbf24;
+    color-scheme: dark;
+  }
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body { background: var(--bg); color: var(--fg); font: 14px/1.45 system-ui, -apple-system, "Segoe UI", sans-serif; }
+button { font: inherit; color: inherit; }
+a { color: var(--accent); }
+
+.app { display: grid; grid-template-columns: 228px 1fr; min-height: 100vh; }
+.side { position: sticky; top: 0; height: 100vh; display: flex; flex-direction: column; gap: 18px; padding: 18px 12px; background: var(--bg); }
+.brand { display: flex; gap: 10px; align-items: center; padding: 0 8px; }
+.brand b { display: block; font-size: 16px; }
+.brand small { color: var(--muted); font-size: 12px; }
+.logo { width: 30px; height: 30px; border-radius: 7px; }
+#nav { display: flex; flex-direction: column; gap: 2px; }
+#nav a { display: flex; gap: 10px; align-items: center; padding: 8px 10px; border-radius: 8px; color: var(--muted); text-decoration: none; transition: background .15s, color .15s; }
+#nav a:hover { background: var(--track); color: var(--fg); }
+#nav a[aria-current="page"] { background: color-mix(in srgb, var(--accent) 14%, var(--bg)); color: var(--accent); font-weight: 600; }
+#nav a.off { opacity: .55; }
+#nav svg { width: 18px; height: 18px; flex: none; fill: none; stroke: var(--c, var(--accent)); stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+.count { margin-left: auto; font-size: 12px; font-variant-numeric: tabular-nums; }
+.side-foot { margin-top: auto; display: flex; flex-direction: column; gap: 8px; padding: 0 8px; color: var(--muted); font-size: 12px; }
+.side-foot button { align-self: flex-start; padding: 4px 10px; border-radius: 6px; border: 1px solid var(--control); background: var(--panel); cursor: pointer; font-size: 12px; }
+main { padding: 24px 24px 40px; min-width: 0; background: var(--panel); margin: 8px 8px 8px 0;
+  border: 1px solid var(--line); border-radius: var(--radius-sheet); min-height: calc(100vh - 16px); }
+@media (max-width: 820px) {
+  .app { grid-template-columns: minmax(0, 1fr); align-content: start; }
+  .side { display: contents; }
+  .brand { padding: 12px 16px 4px; }
+  #nav { position: sticky; top: 0; z-index: 5; flex-direction: row; overflow-x: auto; scrollbar-width: none; padding: 6px 12px; background: var(--bg); border-bottom: 1px solid var(--line); }
+  #nav a { white-space: nowrap; }
+  .count { display: none; }
+  .side-foot { order: 1; flex-direction: row; flex-wrap: wrap; align-items: center; margin: 0; padding: 16px; }
+  main { padding: 16px; margin: 0; border: 0; border-radius: 0; min-height: 0; }
+}
+
+.crumbs { display: flex; flex-wrap: wrap; gap: 4px; align-items: center; margin: 0 0 6px; font-size: 13px; color: var(--muted); }
+.crumbs a { color: var(--muted); text-decoration: none; padding: 1px 4px; border-radius: 4px; }
+.crumbs a:hover { color: var(--fg); background: var(--track); }
+.crumbs span[aria-hidden] { opacity: .6; }
+.head { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 4px; }
+h1 { margin: 0; font-size: 22px; font-weight: 600; }
+.head > svg { width: 22px; height: 22px; flex: none; fill: none; stroke: var(--c); stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+h2 { font-size: 16px; font-weight: 600; margin: 24px 0 10px; }
+.sub { color: var(--muted); font-size: 12px; margin: 2px 0 0; }
+.lead { color: var(--muted); max-width: 70ch; margin: 4px 0 16px; }
+.pill { display: inline-block; padding: 2px 10px; border-radius: 99px; font-size: 12px; background: var(--track); white-space: nowrap; }
+.pill.fam { background: color-mix(in srgb, var(--c) 14%, var(--panel)); color: var(--c); }
+.banner { display: flex; gap: 8px; align-items: flex-start; padding: 10px 14px; margin: 0 0 16px; border-radius: var(--radius); background: var(--warn-bg); color: var(--warn); }
+.empty { color: var(--muted); margin: 0; }
+
+/* tiles: a tile shows the element and, inside, its children one level down */
+.tiles { display: grid; gap: 12px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 230px), 1fr)); align-items: start; }
+.tile { display: flex; flex-direction: column; gap: 8px; min-width: 0; padding: 12px 14px; border: 1px solid var(--line); border-left: 3px solid var(--c);
+  border-radius: var(--radius); background: var(--panel); color: inherit; text-decoration: none; transition: border-color .15s, transform .15s, box-shadow .15s; }
+.tile:hover { border-color: var(--control); border-left-color: var(--c); box-shadow: 0 2px 10px rgb(0 0 0 / .06); }
+.tile .t-h { display: flex; align-items: baseline; gap: 8px; min-width: 0; }
+.tile b { font-size: 15px; font-weight: 600; overflow-wrap: anywhere; }
+.tile .kind { margin-left: auto; color: var(--muted); font-size: 12px; white-space: nowrap; }
+.tile .facts { color: var(--muted); font-size: 12px; font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
+.inner { display: flex; flex-wrap: wrap; gap: 4px; }
+.inner > span { padding: 1px 8px; border-radius: 99px; background: var(--track); font-size: 12px; white-space: nowrap; max-width: 100%; overflow: hidden; text-overflow: ellipsis; }
+.inner > span.more { background: none; color: var(--muted); }
+.dot { width: 8px; height: 8px; border-radius: 50%; flex: none; align-self: center; background: var(--control); }
+.dot.ok { background: var(--ok); } .dot.warn { background: var(--warn); } .dot.down { background: var(--bad); }
+.inner .dot { display: inline-block; padding: 0; width: 6px; height: 6px; margin-right: 5px; vertical-align: 1px; }
+#nav .dot { margin-left: auto; } #nav .dot + .count { margin-left: 6px; }
+.states { display: flex; flex-direction: column; gap: 4px; margin: 0; padding: 0; list-style: none; }
+.states li { display: flex; gap: 8px; align-items: baseline; }
+.states .dot { align-self: auto; transform: translateY(-1px); }
+.tally { display: flex; flex-wrap: wrap; gap: 6px; font-size: 12px; color: var(--muted); }
+.tally span { display: inline-flex; gap: 5px; align-items: center; }
+
+/* overview: the families side by side */
+.families { display: grid; gap: 14px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); align-items: start; }
+.family { display: flex; flex-direction: column; gap: 10px; padding: 16px; border: 1px solid var(--line); border-top: 3px solid var(--c); border-radius: var(--radius); color: inherit; text-decoration: none; }
+a.family:hover { border-color: var(--control); border-top-color: var(--c); }
+.family h3 { margin: 0; font-size: 16px; display: flex; gap: 8px; align-items: center; }
+.family h3 svg { width: 18px; height: 18px; fill: none; stroke: var(--c); stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+.family.off { opacity: .6; }
+.stats { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 8px; }
+.stat { display: flex; flex-direction: column; padding: 8px 10px; border-radius: 8px; background: var(--track); min-width: 0; }
+.stat span { color: var(--muted); font-size: 12px; }
+.stat b { font-size: 15px; font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
+
+/* dashboard: series panels as small SVG curves, points fetched on demand (api/panels/<id>) */
+.charts { display: grid; gap: 10px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 240px), 1fr)); }
+.chart { position: relative; padding: 8px 10px 6px; border-radius: 8px; background: var(--track); min-width: 0; }
+.chart .ch { display: flex; align-items: baseline; gap: 8px; }
+.chart .ch span { color: var(--muted); font-size: 12px; }
+.chart .ch b { margin-left: auto; font-size: 15px; font-variant-numeric: tabular-nums; text-align: right; }
+.chart svg { display: block; width: 100%; height: 56px; overflow: visible; }
+.chart .axis { display: flex; justify-content: space-between; gap: 6px; color: var(--muted); font-size: 11px; font-variant-numeric: tabular-nums; }
+.chart .leg { display: flex; gap: 10px; font-size: 11px; color: var(--muted); }
+.chart .leg i { display: inline-block; width: 10px; height: 0; margin-right: 4px; vertical-align: 3px; border-top: 2px solid var(--c); }
+.chart .leg i.b { border-top-style: dashed; }
+.chart .tip { position: absolute; top: 4px; pointer-events: none; padding: 2px 6px; border-radius: 4px; background: var(--panel); border: 1px solid var(--line); font-size: 11px; white-space: nowrap; font-variant-numeric: tabular-nums; }
+
+/* an element: its facts, the same element elsewhere, its panels */
+.about { display: flex; flex-direction: column; gap: 12px; margin: 12px 0 8px; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+.chip { display: inline-flex; align-items: center; gap: 6px; padding: 3px 10px; border-radius: 99px; border: 1px solid var(--line); background: var(--track); color: inherit; text-decoration: none; font-size: 13px; }
+a.chip:hover { border-color: var(--control); }
+.chip i { width: 8px; height: 8px; border-radius: 2px; background: var(--c); }
+.label { color: var(--muted); font-size: 12px; }
+table { border-collapse: collapse; }
+td, th { padding: 6px 12px 6px 0; text-align: left; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { color: var(--muted); font-weight: 500; font-size: 12px; white-space: nowrap; }
+tr:last-child td { border-bottom: 0; }
+.mods td { white-space: nowrap; }
+.mods td.wrap { white-space: normal; }
+.set input, .set select { font: inherit; color: inherit; background: var(--panel); border: 1px solid var(--line); border-radius: 6px; padding: 4px 8px; width: 100%; box-sizing: border-box; }
+.set input[type="checkbox"] { width: auto; }
+.set table { width: 100%; max-width: 640px; table-layout: fixed; }
+.set td { white-space: normal; overflow-wrap: anywhere; }
+.set h2 { font-size: 15px; margin: 24px 0 4px; }
+.set .save { display: flex; align-items: center; gap: 12px; margin-top: 20px; }
+.set .save button { border: 0; border-radius: 8px; padding: 8px 16px; background: var(--primary); color: var(--on-primary); cursor: pointer; font-weight: 600; }
+.set .save button:disabled { opacity: .5; cursor: default; }
+.bad { color: var(--bad); } .okc { color: var(--ok); }
+code { font-family: ui-monospace, Consolas, monospace; font-size: 12px; }
+
+/* view switch (tiles / map), above every family page */
+.bar { display: flex; justify-content: space-between; align-items: center; gap: 8px; flex-wrap: wrap; margin: 0 0 6px; }
+.bar .crumbs { margin: 0; }
+.views { display: inline-flex; margin-left: auto; padding: 2px; border-radius: 8px; background: var(--track); }
+.views button { border: 0; background: none; padding: 3px 12px; border-radius: 6px; cursor: pointer; font-size: 12px; color: var(--muted); }
+.views button[aria-pressed="true"] { background: var(--panel); color: var(--fg); font-weight: 600; box-shadow: 0 1px 2px rgb(0 0 0 / .1); }
+
+/* map: a canvas of neurons; families glow, levels grow out of their parent with the zoom (semantic zoom) */
+.mapwrap { position: relative; }
+.stage { position: relative; overflow: hidden; height: 480px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--sky);
+  touch-action: none; user-select: none; -webkit-user-select: none; cursor: grab; contain: strict; view-transition-name: cm-focus; }
+.stage canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+.stage.hand { cursor: pointer; } .stage.grab { cursor: grabbing; }
+.zoom { position: absolute; left: 10px; bottom: 10px; z-index: 2; display: flex; flex-direction: column; gap: 4px; }
+.zoom button { width: 32px; height: 32px; border-radius: 8px; border: 1px solid var(--line); background: var(--panel); cursor: pointer; font-size: 16px; line-height: 1; }
+.zoom button:hover { border-color: var(--control); }
+.sheet { position: absolute; top: 10px; right: 10px; z-index: 2; width: min(380px, calc(100% - 20px)); max-height: calc(100% - 20px); overflow: auto;
+  padding: 14px 16px; background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: 0 6px 24px rgb(0 0 0 / .14); }
+.sheet .head h1 { font-size: 18px; }
+.sheet .x { margin-left: auto; border: 0; background: none; cursor: pointer; font-size: 18px; color: var(--muted); padding: 0 4px; }
+.sheet .chips button { padding: 3px 10px; border-radius: 99px; border: 1px solid var(--control); background: var(--panel); cursor: pointer; font-size: 13px; }
+@media (max-width: 820px) { .sheet { top: auto; bottom: 10px; left: 10px; width: auto; max-height: 55%; } }
+::view-transition-group(*) { animation-duration: var(--duration-slow); animation-timing-function: var(--ease-smooth-out); }
+@media (prefers-reduced-motion: reduce) { ::view-transition-group(*), ::view-transition-old(*), ::view-transition-new(*) { animation: none !important; } }
+
+@keyframes rise { from { opacity: 0; transform: translateY(var(--distance-base)); } to { opacity: 1; transform: none; } }
+.enter .tile, .enter .family { animation: rise var(--duration-slow) var(--ease-smooth-out) both; animation-delay: calc(min(var(--i, 0), 12) * var(--duration-stagger)); }
+@media (prefers-reduced-motion: reduce) { .enter .tile, .enter .family { animation: none; } * { transition: none !important; } }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* search palette and shortcuts help: a sheet over a veil, opened with / or Ctrl+K and ? */
+.find { display: flex; gap: 8px; align-items: center; margin: 0 2px; padding: 7px 10px; border-radius: 8px; border: 1px solid var(--line); background: var(--panel); color: var(--muted); cursor: pointer; text-align: left; }
+.find:hover { border-color: var(--control); color: var(--fg); }
+.find svg { width: 15px; height: 15px; flex: none; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; }
+.find kbd { margin-left: auto; }
+kbd { font: 11px ui-monospace, Consolas, monospace; padding: 1px 5px; border: 1px solid var(--line); border-bottom-width: 2px; border-radius: 4px; background: var(--panel); color: var(--muted); white-space: nowrap; }
+.veil { position: fixed; inset: 0; z-index: 20; display: flex; justify-content: center; align-items: flex-start; padding: 12vh 16px 16px; background: rgb(10 12 20 / .45); }
+.pal { width: min(640px, 100%); max-height: 76vh; display: flex; flex-direction: column; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; box-shadow: 0 20px 60px rgb(0 0 0 / .3); overflow: hidden; }
+.pal input { width: 100%; border: 0; border-bottom: 1px solid var(--line); padding: 16px 18px; font: inherit; font-size: 16px; background: none; color: var(--fg); outline: none; }
+.pal .list { overflow: auto; padding: 6px; }
+.pal .foot { display: flex; flex-wrap: wrap; gap: 6px 14px; padding: 8px 14px; border-top: 1px solid var(--line); color: var(--muted); font-size: 12px; }
+.res { display: flex; gap: 10px; align-items: center; padding: 7px 10px; border-radius: 8px; cursor: pointer; color: inherit; text-decoration: none; min-width: 0; }
+.res[aria-selected="true"] { background: color-mix(in srgb, var(--accent) 12%, var(--panel)); }
+.res b { font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.res mark { background: color-mix(in srgb, var(--accent) 25%, transparent); color: inherit; border-radius: 2px; }
+.res .path { color: var(--muted); font-size: 12px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; }
+.res .ip { color: var(--muted); font-size: 12px; font-variant-numeric: tabular-nums; flex: none; }
+.res .pill { margin-left: auto; flex: none; font-size: 11px; }
+.pal .empty { padding: 10px; }
+.keys { display: grid; grid-template-columns: auto 1fr; gap: 8px 14px; align-items: center; margin: 0; padding: 18px 22px; }
+.keys dt { text-align: right; } .keys dd { margin: 0; color: var(--muted); }
+.pal h2 { margin: 0; padding: 16px 22px 0; }
+@media (max-width: 820px) { .find { margin: 4px 16px 8px; } .find kbd { display: none; } .res .path, .res .ip { display: none; } .veil { padding-top: 8vh; } }
+</style>
+<body>
+<div class="app">
+  <aside class="side">
+    <div class="brand"><img class="logo" alt="" src="data:image/png;base64,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"><div><b id="brand-title">Cairn Map</b><small id="brand-sub"></small></div></div>
+    <button type="button" class="find" id="find" aria-keyshortcuts="/ Control+K"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg><span id="find-label">Search</span><kbd>/</kbd></button>
+    <nav id="nav" aria-label="Families"></nav>
+    <div class="side-foot"><span id="updated"></span><button id="theme" type="button"></button></div>
+  </aside>
+  <main id="main" aria-live="polite"><p class="empty" id="loading">…</p></main>
+</div>
+<script>
+"use strict";
+const FR = {
+  "Overview": "Vue d'ensemble", "Modules": "Modules", "physical": "Physique", "network": "Réseau", "hypervisor": "Hyperviseur",
+  "services": "Services", "storage": "Stockage", "elements": "éléments", "No module fills this family yet.": "Aucun module ne remplit encore cette famille.",
+  "Also in": "Aussi dans", "Not found: {p}": "Introuvable : {p}", "Back to the overview": "Retour à la vue d'ensemble",
+  "Module {m} does not answer since {t}: {e}": "Le module {m} ne répond plus depuis {t} : {e}",
+  "Module {m} has never answered: {e}": "Le module {m} n'a jamais répondu : {e}",
+  "Module": "Module", "State": "État", "Last good read": "Dernière lecture réussie", "Elements": "Éléments", "Families": "Familles",
+  "never": "jamais", "answering": "répond", "Items dropped (wrong format)": "éléments écartés (format)",
+  "The map is built from these modules, read again at their own interval. It stores nothing and writes nothing.": "La carte est construite à partir de ces modules, relus chacun à son rythme. Elle ne stocke rien et n'écrit rien.",
+  "Every source is a module. Pick a family to go down, element by element.": "Chaque source est un module. Choisissez une famille pour descendre, élément par élément.",
+  "Updated {t}": "Mis à jour à {t}", "Theme: auto": "Thème : auto", "Theme: light": "Thème : clair", "Theme: dark": "Thème : sombre",
+  "Edit in Cairn IaC": "Modifier dans Cairn IaC", "Edit in Cairn Net": "Modifier dans Cairn Net", "Sources": "Sources",
+  "Could not load the map: {e}": "Impossible de charger la carte : {e}", "Inside": "Dedans",
+  // kinds
+  "cluster": "cluster", "node": "nœud", "lxc": "LXC", "vm": "VM", "guest": "invité", "router": "routeur", "vlan": "VLAN", "switch": "switch",
+  "port": "port", "link": "liaison", "device": "appareil", "ap": "borne Wi-Fi", "iot": "objet", "nas": "NAS", "pc": "ordinateur", "phone": "téléphone",
+  "server": "serveur", "unknown": "inconnu",
+  // attributes
+  "ip": "IP", "mac": "MAC", "roles": "Rôles", "groups": "Groupes", "guests": "Invités", "vcpu": "vCPU", "memory_mib": "Mémoire", "disk_gb": "Disque",
+  "vmid": "ID", "declared": "Déclaré par", "nodes": "Nœuds", "switches": "Switchs", "vlans": "VLAN", "vlan": "VLAN", "interface": "Interface",
+  "subnet": "Réseau", "gateway": "Passerelle", "devices": "Appareils", "ports": "Ports", "to": "Vers", "pvid": "PVID", "switch": "Switch",
+  "tofu": "Tofu", "inventory": "inventaire", "up": "actif", "down": "coupé", "port_": "Port",
+  "power": "Alimentation", "on": "allumé", "off": "éteint", "cpu_load": "Charge CPU", "mem_used_mib": "Mémoire utilisée", "uptime": "Allumé depuis",
+  "State now": "État actuel", "ok": "ok", "warn": "à surveiller", "unknown": "inconnu", "Uptime Kuma": "Uptime Kuma",
+  "{n} down": "{n} en panne", "{n} to watch": "{n} à surveiller", "{n} ok": "{n} ok", "{n} unknown": "{n} inconnus",
+  // dashboard
+  "CPU": "CPU", "Memory": "Mémoire", "Disk": "Disque", "Network": "Réseau", "receive": "reçu", "transmit": "émis",
+  "Last backup": "Dernière sauvegarde", "Grafana": "Grafana", "now": "maintenant", "max {v}": "max {v}", "avg {v}": "moy. {v}", "{h} ago": "il y a {h}",
+  // map view
+  "View": "Vue", "Tiles": "Tuiles", "Map": "Carte", "Zoom in": "Zoomer", "Zoom out": "Dézoomer", "Show all": "Tout voir", "Close": "Fermer",
+  "See as tiles": "Voir en tuiles", "Infrastructure map": "Carte de l'infrastructure",
+  "Scroll or pinch to zoom: the next levels grow out of their parent. Click a point to go there and open its details; hover shows its links, the same machine in another family included.":
+    "Molette ou pincement pour zoomer : les niveaux suivants poussent de leur parent. Clic sur un point : on y va et sa fiche s'ouvre ; le survol montre ses liens, y compris la même machine dans une autre famille.",
+  // lot 5: physical, services, storage
+  "site": "site", "place": "pièce", "group": "groupe", "proxy": "frontal", "service": "service", "pool": "pool", "dataset": "jeu de données",
+  "volume": "volume", "share": "partage", "Servers": "Serveurs", "Storage": "Stockage", "Computers": "Ordinateurs", "Other": "Autres",
+  "model": "Modèle", "host": "Machine", "hosts": "Domaines", "entrypoints": "Points d'entrée", "middlewares": "Middlewares", "servers": "Serveurs",
+  "url": "Adresse", "health": "Santé", "used_b": "Occupé", "avail_b": "Disponible", "quota_b": "Quota", "capacity": "Remplissage",
+  "fragmentation": "Fragmentation", "mountpoint": "Point de montage", "nfs": "Partagé en NFS avec", "pools": "Pools", "datasets": "Jeux de données",
+  "Monitor": "Sonde", "Latency": "Latence", "24 h": "24 h", "30 d": "30 j",
+  // 1.1: way out, places, SMB shares
+  "internet": "accès Internet", "via": "Par", "Group by": "Regrouper par", "By kind": "Par sorte", "By place": "Par pièce", "No place": "Sans pièce", "location": "Emplacement",
+  "smb": "Partagé en SMB", "smb_users": "Utilisateurs SMB",
+  // 1.2: settings
+  "Settings": "Réglages", "Machines": "Machines", "Machine": "Machine", "Kind": "Sorte", "Save": "Enregistrer", "Saving…": "Enregistrement…",
+  "Saved.": "Enregistré.", "Not saved: {e}": "Non enregistré : {e}", "off": "coupé",
+  "Saved on the server for everyone. The rest stays in the tools that own the data.": "Enregistré sur le serveur, pour tout le monde. Le reste se modifie dans les outils qui tiennent les données.",
+  "Read only: no settings_file in the configuration.": "Lecture seule : pas de settings_file dans la configuration.",
+  "A room or a rack per machine (type a new one to create it); once one is set, the Physical page can group by place.": "Une pièce ou une baie par machine (en taper une nouvelle la crée) ; dès qu'il y en a une, la page Physique peut regrouper par pièce.",
+  "A module switched off is no longer read; its elements leave the map.": "Un module coupé n'est plus lu ; ses éléments quittent la carte.",
+  // search and shortcuts
+  "Search": "Rechercher", "Go to… (name, IP, kind, path)": "Aller à… (nom, IP, type, chemin)", "{n} elements": "{n} éléments",
+  "Nothing for “{q}”": "Rien pour « {q} »", "choose": "choisir", "go": "y aller", "close": "fermer", "Keyboard shortcuts": "Raccourcis clavier",
+  "Search, by name, IP, domain, kind or path": "Rechercher, par nom, IP, domaine, type ou chemin", "The overview, then the five families": "La vue d'ensemble, puis les cinq familles",
+  "Switch tiles and map": "Basculer tuiles et carte", "Up one level": "Remonter d'un niveau", "The modules": "Les modules", "The settings": "Les réglages",
+  "Close the search, the details or this help": "Fermer la recherche, la fiche ou cette aide", "This help": "Cette aide",
+  "On the map: zoom, move, show all": "Sur la carte : zoomer, déplacer, tout voir", "or": "ou", "Esc": "Échap", "Enter": "Entrée",
+};
+// English labels that are not the key itself
+const EN = { physical: "Physical", network: "Network", hypervisor: "Hypervisor", services: "Services", storage: "Storage", used_b: "Used",
+  avail_b: "Available", quota_b: "Quota", nfs: "NFS clients", vcpu: "vCPU", memory_mib: "Memory", disk_gb: "Disk", vmid: "ID", ip: "IP", mac: "MAC",
+  pvid: "PVID", mem_used_mib: "Memory used", cpu_load: "CPU load", url: "Address", host: "Machine", hosts: "Domains", entrypoints: "Entry points",
+  mountpoint: "Mount point", port_: "Port", roles: "Roles", groups: "Groups", guests: "Guests", declared: "Declared by", nodes: "Nodes",
+  switches: "Switches", vlans: "VLANs", vlan: "VLAN", interface: "Interface", subnet: "Subnet", gateway: "Gateway", devices: "Devices", ports: "Ports",
+  to: "To", switch: "Switch", power: "Power", uptime: "Up since", model: "Model", servers: "Servers", health: "Health", capacity: "Capacity",
+  fragmentation: "Fragmentation", pools: "Pools", datasets: "Datasets", dataset: "Dataset", middlewares: "Middlewares",
+  internet: "Internet", via: "Through", location: "Location", smb: "SMB share", smb_users: "SMB users" };
+// the modules write their state details in English; parts between " · " are translated here, {x} keeps a value
+const FRD = {
+  "link up": "lien actif", "link down": "lien coupé", "disabled": "désactivé", "unreachable: {e}": "injoignable : {e}", "seen on {p}": "vu sur {p}",
+  "port {p} is down": "port {p} coupé", "hot": "chaud", "busy": "chargé", "running": "en marche", "offline": "hors ligne", "stopped": "arrêté",
+  "stopped (expected)": "arrêté (attendu)", "up": "en ligne", "down": "en panne", "pending": "en attente", "maintenance": "maintenance",
+  "Backup": "Sauvegarde", "{h} ago": "il y a {h}", "older than {n} h": "plus de {n} h", "server up": "serveur actif", "server down": "serveur en panne",
+  "{n} % used": "{n} % occupé",
+};
+const FRD_RE = Object.entries(FRD).filter(([k]) => k.includes("{")).map(([k, v]) =>
+  [new RegExp("^" + k.replace(/[.*+?^$()|[\]\\]/g, "\\$&").replace(/\{(\w+)\}/g, "(?<$1>.+)") + "$"), v]);
+function trd(s) {
+  if (LANG !== "fr") return String(s ?? "");
+  return String(s ?? "").split(" · ").map(part => {
+    if (FRD[part]) return FRD[part];
+    for (const [re, v] of FRD_RE) { const m = part.match(re); if (m) return v.replace(/\{(\w+)\}/g, (_, x) => m.groups[x]); }
+    return part;
+  }).join(" · ");
+}
+const ICONS = {
+  overview: '<rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/>',
+  physical: '<rect x="3" y="4" width="18" height="6" rx="1.5"/><rect x="3" y="14" width="18" height="6" rx="1.5"/><path d="M7 7h.01M7 17h.01M11 7h6M11 17h6"/>',
+  network: '<rect x="9" y="3" width="6" height="5" rx="1"/><rect x="3" y="16" width="6" height="5" rx="1"/><rect x="15" y="16" width="6" height="5" rx="1"/><path d="M12 8v4M6 16v-2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v2"/>',
+  hypervisor: '<rect x="3" y="3" width="18" height="18" rx="2"/><rect x="7" y="7" width="4" height="4" rx=".8"/><rect x="13" y="7" width="4" height="4" rx=".8"/><rect x="7" y="13" width="4" height="4" rx=".8"/><rect x="13" y="13" width="4" height="4" rx=".8"/>',
+  services: '<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/>',
+  storage: '<ellipse cx="12" cy="6" rx="8" ry="3"/><path d="M4 6v12c0 1.7 3.6 3 8 3s8-1.3 8-3V6M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/>',
+  modules: '<path d="M12 3l9 5-9 5-9-5 9-5zM3 13l9 5 9-5"/>',
+  settings: '<path d="M4 6h10M18 6h2M4 12h4M12 12h8M4 18h12M20 18h0"/><circle cx="16" cy="6" r="2"/><circle cx="10" cy="12" r="2"/><circle cx="18" cy="18" r="2"/>',
+};
+const SLUG = { fr: { physical: "physique", network: "reseau", hypervisor: "hyperviseur", services: "services", storage: "stockage" } };
+let LANG = "en", PLACES = "", D = null, BY_PATH = {}, VIEW = "";
+const $ = s => document.querySelector(s);
+const t = (k, v = {}) => ((LANG === "fr" ? FR[k] : EN[k]) || k).replace(/\{(\w+)\}/g, (_, x) => v[x] ?? "");
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
+const famSlug = f => (SLUG[LANG] || {})[f] || f;
+const famOf = s => (D.families.find(f => f === s || famSlug(f) === s || Object.values(SLUG).some(m => m[f] === s)));
+const href = x => "#" + [famSlug(x.family), ...x.path].map(encodeURIComponent).join("/");
+const icon = (k, c) => `<svg viewBox="0 0 24 24" aria-hidden="true"${c ? ` style="--c:var(--f-${c})"` : ""}>${ICONS[k] || ""}</svg>`;
+const when = s => s ? new Date(s * 1000).toLocaleString(LANG, { dateStyle: "short", timeStyle: "short" }) : t("never");
+
+function fmt(k, v) {
+  if (Array.isArray(v)) return v.map(esc).join(", ");
+  if (typeof v === "number" && /_b(_total)?$/.test(k)) return metric(v, "B");
+  if (typeof v === "number" && (k === "capacity" || k === "fragmentation")) return v + " %";
+  if (typeof v === "number" && /_mib(_total)?$/.test(k)) return (v / 1024).toLocaleString(LANG, { maximumFractionDigits: 1 }) + (LANG === "fr" ? " Gio" : " GiB");
+  if (typeof v === "number" && /_gb(_total)?$/.test(k)) return v >= 1024 ? (v / 1024).toLocaleString(LANG, { maximumFractionDigits: 1 }) + (LANG === "fr" ? " To" : " TB") : v + (LANG === "fr" ? " Go" : " GB");
+  if (typeof v === "number") return v.toLocaleString(LANG, { maximumFractionDigits: 1 });
+  return esc(["declared", "link", "power"].includes(k) ? t(v) : v);
+}
+// "used / total" when a total is known (vcpu + vcpu_total)
+function facts(x) {
+  return Object.entries(x.attrs).filter(([k, v]) => k !== "order" && !k.endsWith("_total") && v !== "" && v !== null && !(Array.isArray(v) && !v.length))
+    .map(([k, v]) => [k, fmt(k, v) + (x.attrs[k + "_total"] ? " / " + fmt(k, x.attrs[k + "_total"]) : "")]);
+}
+const SHORT = ["ip", "subnet", "to", "hosts", "devices", "guests", "vcpu", "memory_mib", "capacity", "used_b"];
+function shortFacts(x) {
+  return SHORT.filter(k => x.attrs[k] !== undefined && x.attrs[k] !== "" && x.attrs[k] !== 0)
+    .map(k => (["ip", "subnet", "to", "hosts"].includes(k) ? "" : t(k) + " ") + fmt(k, x.attrs[k])).join(" · ");
+}
+const dot = x => x && x.rollup ? `<span class="dot ${x.rollup}" title="${esc(t(x.rollup))}"></span>` : "";
+const chip = id => `<span>${dot(D.nodes[id])}${esc(D.nodes[id].name)}</span>`;
+const LV = ["ok", "unknown", "warn", "down"];
+const worst = ids => ids.map(i => D.nodes[i].rollup).filter(Boolean).sort((a, b) => LV.indexOf(b) - LV.indexOf(a))[0] || "";
+// how many elements with a state of their own in a family, per level: "2 down · 3 to watch · 40 ok"
+function tally(f) {
+  const n = {}; Object.values(D.nodes).forEach(x => { if (x.family === f && x.level) n[x.level] = (n[x.level] || 0) + 1; });
+  const w = { down: "{n} down", warn: "{n} to watch", unknown: "{n} unknown", ok: "{n} ok" };
+  const parts = ["down", "warn", "unknown", "ok"].filter(l => n[l]).map(l => `<span><span class="dot ${l}"></span>${esc(t(w[l], { n: n[l] }))}</span>`);
+  return parts.length ? `<span class="tally">${parts.join("")}</span>` : "";
+}
+
+function tile(id, i) {
+  const x = D.nodes[id], kids = x.children;
+  const inner = kids.slice(0, 8).map(chip).join("") + (kids.length > 8 ? `<span class="more">+${kids.length - 8}</span>` : "");
+  return `<a class="tile" href="${href(x)}" style="--c:var(--f-${x.family});--i:${i};view-transition-name:cm-k${i}">
+    <span class="t-h">${dot(x)}<b>${esc(x.name || x.id)}</b><span class="kind">${esc(t(x.kind))}</span></span>
+    ${shortFacts(x) ? `<span class="facts">${shortFacts(x)}</span>` : ""}
+    ${kids.length ? `<span class="inner">${inner}</span>` : ""}</a>`;
+}
+
+function banners() {
+  return D.modules.filter(m => m.error).map(m => `<p class="banner" role="status">${esc(m.ok
+    ? t("Module {m} does not answer since {t}: {e}", { m: m.name, t: when(m.ok), e: m.error })
+    : t("Module {m} has never answered: {e}", { m: m.name, e: m.error }))}</p>`).join("");
+}
+
+function count(f) { return Object.values(D.nodes).filter(x => x.family === f).length; }
+
+function nav(cur) {
+  const item = (h, k, label, c, n, off, lv) => `<a href="${h}"${cur === h ? ' aria-current="page"' : ""}${off ? ' class="off"' : ""}>${icon(k, c)}<span>${esc(label)}</span>${dot({ rollup: lv })}${n ? `<span class="count">${n}</span>` : ""}</a>`;
+  const all = worst(D.families.flatMap(f => D.roots[f]));
+  $("#nav").innerHTML = item("#", "overview", t("Overview"), "", 0, false, all) +
+    D.families.map(f => item("#" + famSlug(f), f, t(f), f, count(f), !count(f), worst(D.roots[f]))).join("") +
+    item("#modules", "modules", t("Modules"), "", 0, false, D.modules.some(m => m.error) ? "warn" : "") +
+    item("#settings", "settings", t("Settings"), "", 0, false, "");
+}
+
+function overview() {
+  const fams = D.families.map((f, i) => {
+    const roots = D.roots[f], n = count(f);
+    if (!n) return `<div class="family off" style="--c:var(--f-${f});--i:${i};view-transition-name:cm-k${i}"><h3>${icon(f)}${esc(t(f))}</h3><p class="empty">${esc(t("No module fills this family yet."))}</p></div>`;
+    const top = roots.length === 1 ? D.nodes[roots[0]].children : roots;
+    const inner = top.slice(0, 12).map(chip).join("") + (top.length > 12 ? `<span class="more">+${top.length - 12}</span>` : "");
+    const lead = roots.length === 1 ? `<span class="facts">${esc(D.nodes[roots[0]].name)}${shortFacts(D.nodes[roots[0]]) ? " · " + shortFacts(D.nodes[roots[0]]) : ""}</span>` : "";
+    return `<a class="family" href="#${famSlug(f)}" style="--c:var(--f-${f});--i:${i};view-transition-name:cm-k${i}"><h3>${dot({ rollup: worst(roots) })}${icon(f)}${esc(t(f))}<span class="kind" style="margin-left:auto;font-weight:400;font-size:12px;color:var(--muted)">${n} ${esc(t("elements"))}</span></h3>${lead}${tally(f)}<span class="inner">${inner}</span></a>`;
+  }).join("");
+  return `<div class="bar">${views()}</div><div class="head">${dot({ rollup: worst(D.families.flatMap(f => D.roots[f])) })}<h1>${esc(t("Overview"))}</h1></div><p class="lead">${esc(t("Every source is a module. Pick a family to go down, element by element."))}</p>
+    ${banners()}<div class="families" style="view-transition-name:cm-focus">${fams}</div>`;
+}
+
+const views = () => `<div class="views" role="group" aria-label="${esc(t("View"))}">${["tiles", "map"].map(v =>
+  `<button type="button" data-view="${v}" aria-pressed="${MODE === v}">${esc(t(v === "map" ? "Map" : "Tiles"))}</button>`).join("")}</div>`;
+
+// the Physical family by kind or by place, shown once a place is declared; the server regroups (api/map?places=1)
+const groups = f => f === "physical" && Object.values(D.nodes).some(x => x.family === "physical" && x.attrs.location)
+  ? `<div class="views" role="group" aria-label="${esc(t("Group by"))}">${[["", "By kind"], ["1", "By place"]].map(([v, l]) =>
+    `<button type="button" data-group="${v}" aria-pressed="${PLACES === v}">${esc(t(l))}</button>`).join("")}</div>` : "";
+function crumbs(f, chain) {
+  const parts = [`<a href="#">${esc(t("Overview"))}</a>`, ...(f ? [`<a href="#${famSlug(f)}">${esc(t(f))}</a>`] : []), ...chain.map(x => `<a href="${href(x)}">${esc(x.name)}</a>`)];
+  return `<div class="bar"><nav class="crumbs" aria-label="breadcrumb">${parts.join('<span aria-hidden="true">›</span>')}</nav>${groups(f)}${views()}</div>`;
+}
+
+function about(x) {
+  const rows = facts(x).map(([k, v]) => `<tr><th scope="row">${esc(t(k))}</th><td>${v}</td></tr>`).join("");
+  // the same machine behind several services (or in several VLANs): each chip says where, by its parent
+  const ys = x.also.map(j => D.nodes[j]), twice = y => ys.filter(z => z.family === y.family && z.name === y.name).length > 1;
+  const parentOf = y => (D.nodes[BY_PATH[y.family + "/" + y.path.slice(0, -1).join("/")]] || {}).name;
+  const also = ys.map(y => `<a class="chip" href="${href(y)}" style="--c:var(--f-${y.family})"><i></i>${esc(t(y.family))} › ${esc(twice(y) && parentOf(y) || y.name)}</a>`).join("");
+  const links = x.panels.filter(p => p.type === "link" && /^https?:/.test(p.url)).map(p => `<a class="chip" href="${esc(p.url)}" rel="noreferrer">${esc(t(p.title || p.url))} ↗</a>`).join("");
+  // a value with a time (a last backup) reads as an age, in the page's language
+  const values = x.panels.filter(p => p.type === "value").map(p => `<div class="stat"${p.time ? ` title="${esc(when(p.time))}"` : ""}><span>${esc(t(p.title || ""))}</span><b>${esc(typeof p.time === "number" ? ago(p.time) : p.value)}${esc(p.time ? "" : p.unit || "")}</b></div>`).join("");
+  const series = x.panels.filter(p => p.type === "series" && Array.isArray(p.lines) && p.lines.length);
+  const charts = series.length ? `<div class="charts" data-panels="${esc(x.id)}" style="--c:var(--f-${x.family})">${series.map((p, i) => chart(p, x.id + "|" + i)).join("")}</div>` : "";
+  // tables of the same title and columns (one per monitor, say) read as one
+  const groups = {};
+  x.panels.filter(p => p.type === "table" && Array.isArray(p.rows)).forEach(p => {
+    const k = JSON.stringify([p.title || "", p.columns || []]);
+    (groups[k] = groups[k] || { title: p.title, columns: p.columns, rows: [] }).rows.push(...p.rows);
+  });
+  const tables = Object.values(groups).map(p => `<div><h2>${esc(t(p.title || ""))}</h2><table>${p.columns ? `<tr>${p.columns.map(c => `<th>${esc(t(c))}</th>`).join("")}</tr>` : ""}${p.rows.map(r => `<tr>${[].concat(r).map(c => `<td>${esc(trd(c))}</td>`).join("")}</tr>`).join("")}</table></div>`).join("");
+  const st = [...x.status].sort((a, b) => LV.indexOf(b.level) - LV.indexOf(a.level));
+  const status = st.length ? `<div><span class="label">${esc(t("State now"))}</span><ul class="states">${st.map(s => `<li><span class="dot ${s.level}" title="${esc(t(s.level))}"></span><span>${esc(trd(s.detail) || t(s.level))}</span></li>`).join("")}</ul></div>` : "";
+  return `<div class="about">${rows ? `<table>${rows}</table>` : ""}${status}${charts}${values ? `<div class="stats">${values}</div>` : ""}
+    ${also ? `<div class="chips"><span class="label">${esc(t("Also in"))}</span>${also}</div>` : ""}${links ? `<div class="chips">${links}</div>` : ""}${tables}
+    <p class="sub">${esc(t("Sources"))} : ${[...new Set([...x.sources, ...x.status.map(s => s.source), ...x.panels.map(p => p.source)])].map(esc).join(", ")}</p></div>`;
+}
+
+// ---------- dashboard: series panels drawn as inline SVG; /api/map carries each line's last value, the points come on demand ----------
+function metric(v, unit) {
+  if (v === null || v === undefined) return "–";
+  let u = unit || "";
+  if (u === "B/s" || u === "B") {
+    const us = LANG === "fr" ? ["o", "ko", "Mo", "Go", "To"] : ["B", "kB", "MB", "GB", "TB"];
+    let i = 0; while (Math.abs(v) >= 1000 && i < 4) { v /= 1000; i++; }
+    u = us[i] + (unit === "B/s" ? "/s" : "");
+  }
+  return v.toLocaleString(LANG, { maximumFractionDigits: Math.abs(v) < 10 ? 1 : 0 }) + (u ? " " + u : "");
+}
+function ago(ts) {
+  const h = (Date.now() / 1000 - ts) / 3600;
+  return t("{h} ago", { h: h < 1 ? Math.max(1, Math.round(h * 60)) + " min" : h < 48 ? Math.round(h) + " h" : Math.round(h / 24) + (LANG === "fr" ? " j" : " d") });
+}
+const CHARTS = {}, POINTS = {};  // chart key -> panel with points; element id -> {at, panels}
+const lastOf = l => Array.isArray(l.values) ? [...l.values].reverse().find(v => v !== null) ?? null : l.last ?? null;
+function chart(p, key) {
+  CHARTS[key] = p;
+  const W = 300, H = 56, has = p.lines.some(l => Array.isArray(l.values)), n = has ? p.lines[0].values.length : 0;
+  const head = p.lines.map(l => metric(lastOf(l), p.unit)).join(" · ");
+  let body = "", axis = "";
+  if (has) {
+    const all = p.lines.flatMap(l => l.values).filter(v => v !== null), top = p.max ?? (Math.max(...all, 0) * 1.1 || 1);
+    const path = vs => vs.map((v, j) => v === null ? "" : `${j && vs[j - 1] !== null ? "L" : "M"}${(j / Math.max(1, n - 1) * W).toFixed(1)},${(H - Math.min(v, top) / top * H).toFixed(1)}`).join("");
+    const first = path(p.lines[0].values), avg = all.reduce((a, b) => a + b, 0) / (all.length || 1);
+    body = (p.max ? `<line x1="0" x2="${W}" y1="0" y2="0" stroke="var(--line)" vector-effect="non-scaling-stroke"/>` : "") +
+      (first && p.lines.length === 1 ? `<path d="${first}L${W},${H}L0,${H}Z" fill="color-mix(in srgb, var(--c) 18%, transparent)" stroke="none"/>` : "") +
+      p.lines.map((l, k) => `<path d="${path(l.values)}" fill="none" stroke="var(--c)" stroke-width="1.6"${k ? ' stroke-dasharray="4 3"' : ""} vector-effect="non-scaling-stroke" stroke-linejoin="round"/>`).join("") +
+      `<line class="cross" x1="0" x2="0" y1="0" y2="${H}" stroke="var(--muted)" vector-effect="non-scaling-stroke" visibility="hidden"/>`;
+    axis = `<div class="axis"><span>−${Math.round((n - 1) * p.step / 3600)} h</span><span>${esc(all.length ? t("max {v}", { v: metric(Math.max(...all), p.unit) }) + " · " + t("avg {v}", { v: metric(avg, p.unit) }) : "")}</span><span>${esc(t("now"))}</span></div>`;
+  }
+  return `<div class="chart" data-chart="${esc(key)}"><div class="ch"><span>${esc(t(p.title || ""))}</span><b>${esc(head)}</b></div>
+    <svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="none" role="img" aria-label="${esc(t(p.title || ""))} : ${esc(head)}">${body}</svg>
+    ${p.lines.length > 1 ? `<div class="leg">${p.lines.map((l, k) => `<span><i class="${k ? "b" : ""}"></i>${esc(t(l.name))}</span>`).join("")}</div>` : ""}${axis}</div>`;
+}
+// after a render: fetch the points of the charts on screen (kept a minute), then redraw those charts in place
+function fillCharts() {
+  for (const box of document.querySelectorAll("[data-panels]")) {
+    const id = box.dataset.panels, have = POINTS[id];
+    const draw = () => {
+      const el = [...document.querySelectorAll("[data-panels]")].find(b => b.dataset.panels === id);
+      if (!el || !POINTS[id]) return;
+      el.innerHTML = POINTS[id].panels.filter(p => p.type === "series" && Array.isArray(p.lines) && p.lines.length).map((p, i) => chart(p, id + "|" + i)).join("");
+    };
+    if (have && have.panels) draw();  // the last points while new ones come
+    if (have && Date.now() - have.at < 60000) continue;
+    POINTS[id] = { at: Date.now(), panels: have && have.panels };
+    fetch("api/panels/" + encodeURIComponent(id), { headers: { Accept: "application/json" } }).then(r => r.ok ? r.json() : null)
+      .then(j => { if (j) { POINTS[id].panels = j.panels; draw(); } }).catch(() => {});
+  }
+}
+// hover a curve: the value at that time
+addEventListener("pointermove", e => {
+  const c = e.target.closest && e.target.closest(".chart");
+  document.querySelectorAll(".chart .tip").forEach(x => { if (x.parentNode !== c) x.remove(); });
+  document.querySelectorAll(".chart .cross").forEach(x => { if (!c || !c.contains(x)) x.setAttribute("visibility", "hidden"); });
+  const p = c && CHARTS[c.dataset.chart];
+  if (!p || !Array.isArray(p.lines[0].values)) return;
+  const svg = c.querySelector("svg"), r = svg.getBoundingClientRect(), n = p.lines[0].values.length;
+  const j = Math.max(0, Math.min(n - 1, Math.round((e.clientX - r.left) / r.width * (n - 1))));
+  const ln = svg.querySelector(".cross"), x = j / Math.max(1, n - 1) * 300;
+  ln.setAttribute("x1", x); ln.setAttribute("x2", x); ln.setAttribute("visibility", "visible");
+  let tip = c.querySelector(".tip");
+  if (!tip) { tip = document.createElement("span"); tip.className = "tip"; c.appendChild(tip); }
+  tip.textContent = new Date((p.start + j * p.step) * 1000).toLocaleTimeString(LANG, { timeStyle: "short" }) + " · " +
+    p.lines.map(l => (p.lines.length > 1 ? t(l.name) + " " : "") + metric(l.values[j], p.unit)).join(" · ");
+  tip.style.left = Math.min(Math.max(0, e.clientX - c.getBoundingClientRect().left - tip.offsetWidth / 2), c.clientWidth - tip.offsetWidth) + "px";
+});
+
+function level(f, path) {
+  const roots = D.roots[f];
+  const solo = roots.length === 1 ? D.nodes[roots[0]] : null;
+  if (!path.length) {
+    const head = solo ? `<span class="pill fam" style="--c:var(--f-${f})">${esc(t(solo.kind))}</span>` : "";
+    const body = solo ? solo.children : roots;
+    return crumbs(f, []) + `<div class="head" style="--c:var(--f-${f})">${dot({ rollup: worst(roots) })}${icon(f)}<h1>${esc(solo ? solo.name : t(f))}</h1>${head}</div>${banners()}
+      ${!roots.length ? `<p class="empty">${esc(t("No module fills this family yet."))}</p>` : ""}${tally(f)}${solo ? about(solo) : ""}
+      ${body.length ? `<div class="tiles" style="view-transition-name:cm-focus">${body.map(tile).join("")}</div>` : ""}`;
+  }
+  const id = BY_PATH[f + "/" + path.join("/")];
+  if (!id) return crumbs(f, []) + `<h1>${esc(t("Not found: {p}", { p: path.join("/") }))}</h1><p><a href="#">${esc(t("Back to the overview"))}</a></p>`;
+  const x = D.nodes[id], chain = [];
+  for (let i = 1; i <= path.length; i++) chain.push(D.nodes[BY_PATH[f + "/" + path.slice(0, i).join("/")]]);
+  return crumbs(f, chain.slice(0, -1)) + `<div class="head">${dot(x)}<h1>${esc(x.name || x.id)}</h1><span class="pill fam" style="--c:var(--f-${f})">${esc(t(x.kind))}</span></div>
+    ${banners()}${about(x)}${x.children.length ? `<h2>${esc(t("Inside"))} · ${x.children.length}</h2><div class="tiles" style="view-transition-name:cm-focus">${x.children.map(tile).join("")}</div>` : ""}`;
+}
+
+// ---------- map view: the same tree as neurons on one canvas, semantic zoom ----------
+// A core (the overview), a glowing soma per family (a family with a single root is that root), then each level
+// grows out of its parent as you zoom in. Fibres carry impulses, red towards a failing element. Links between
+// families (the same machine seen twice) show for the hovered or current element only.
+const REDUCED = matchMedia("(prefers-reduced-motion: reduce)"), DARKQ = matchMedia("(prefers-color-scheme: dark)");
+let MODE = "tiles", G = null, P = {}, VIS = {}, CAM = null, K0 = 1, SW = 0, SH = 0, FOCUS = "", SHEET = true, KEEP = false, JUMP = false;
+let anim = 0, loopOn = false, HOVER = null, DRAWN = [], PULSES = [], lastSpawn = 0, COLORS = null, colorKey = "";
+try { MODE = localStorage.getItem("cairn-map-view") === "map" ? "map" : "tiles"; PLACES = localStorage.getItem("cairn-map-places") || ""; } catch (e) {}
+
+// the graph: "" is the core, "fam:<family>" a family; ALIAS maps a family's lone root to its soma
+function graph() {
+  const N = { "": { name: D.title, f: "", kids: D.families.map(f => "fam:" + f), d: 0, lv: worst(D.families.flatMap(f => D.roots[f])), up: null } }, ALIAS = {};
+  for (const f of D.families) {
+    const r = D.roots[f], solo = r.length === 1 ? D.nodes[r[0]] : null;
+    N["fam:" + f] = { name: t(f) + (solo ? " · " + solo.name : ""), f, kids: solo ? solo.children : r, d: 1, lv: worst(r), up: "", x: solo };
+    if (solo) ALIAS[solo.id] = "fam:" + f;
+  }
+  const walk = id => {
+    for (const c of N[id].kids) {
+      if (N[c]) continue;  // each element once
+      const x = D.nodes[c];
+      N[c] = { name: x.name || x.id, f: x.family, kids: x.children, d: N[id].d + 1, lv: x.rollup, up: id, x };
+      walk(c);
+    }
+  };
+  N[""].kids.forEach(walk);
+  const E = Object.keys(N).filter(i => N[i].up !== null).map(i => [N[i].up, i]), X = [], seen = new Set();
+  for (const [i0, x] of Object.entries(D.nodes)) for (const j0 of x.also) {
+    const i = ALIAS[i0] || i0, j = ALIAS[j0] || j0, k = [i, j].sort().join("|");
+    if (N[i] && N[j] && !seen.has(k)) { seen.add(k); X.push([i, j]); }
+  }
+  return { N, E, X, ALIAS, ids: Object.keys(N) };
+}
+
+// layout, once per data shape: families on a ring, a force pass keeps each family in its own region.
+// Seeded by the ids, so the same infrastructure always draws the same way.
+function seeded(s) { let h = 2166136261; for (const c of s) h = Math.imul(h ^ c.charCodeAt(0), 16777619); return ((h >>> 0) % 10000) / 10000 - .5; }
+function layout() {
+  const { N, E, ids } = G, fams = N[""].kids, C = {};
+  P = { "": [0, 0] };
+  fams.forEach((id, i) => { const a = -Math.PI / 2 + i * 2 * Math.PI / fams.length; P[id] = [Math.cos(a) * 760, Math.sin(a) * 760]; C[N[id].f] = [Math.cos(a) * 1000, Math.sin(a) * 1000]; });  // branches bloom outwards
+  for (const id of ids) if (!P[id]) { const q = P[N[id].up]; P[id] = [q[0] + seeded(id) * 80, q[1] + seeded(id + "y") * 80]; }
+  const V = Object.fromEntries(ids.map(i => [i, [0, 0]])), LEN = [0, 0, 120, 60, 40, 30, 24];
+  for (let it = 0, a = 1; it < 400; it++, a *= .99) {
+    for (let i = 0; i < ids.length; i++) for (let j = i + 1; j < ids.length; j++) {
+      const p = P[ids[i]], q = P[ids[j]], dx = p[0] - q[0], dy = p[1] - q[1], d2 = dx * dx + dy * dy || 1;
+      if (d2 > 90000) continue;
+      const f = 700 / d2 * a; V[ids[i]][0] += dx * f; V[ids[i]][1] += dy * f; V[ids[j]][0] -= dx * f; V[ids[j]][1] -= dy * f;
+    }
+    for (const [u, v] of E) {
+      if (u === "") continue;
+      const p = P[u], q = P[v], dx = q[0] - p[0], dy = q[1] - p[1], d = Math.hypot(dx, dy) || 1, f = (d - LEN[Math.min(N[v].d, 6)]) / d * .1 * a;
+      V[u][0] += dx * f; V[u][1] += dy * f; V[v][0] -= dx * f; V[v][1] -= dy * f;
+    }
+    for (const id of ids) {
+      if (N[id].d <= 1) continue;
+      const c = C[N[id].f], v = V[id];
+      v[0] += (c[0] - P[id][0]) * .012 * a; v[1] += (c[1] - P[id][1]) * .012 * a;
+      P[id][0] += v[0]; P[id][1] += v[1]; v[0] *= .5; v[1] *= .5;
+    }
+  }
+}
+function prepare() {
+  const shape = Object.keys(D.nodes).sort().join(",") + D.families.map(f => D.roots[f].join()).join("|");
+  const g = graph();
+  if (G && G.shape === shape) { G = { ...g, shape }; return; }  // same elements: keep the drawing where it is
+  G = { ...g, shape };
+  layout();
+  for (const id of G.ids) VIS[id] = VIS[id] ?? (G.N[id].d <= 2 ? 1 : 0);
+}
+
+// colors come from the page's tokens, so the themes stay one place
+function colors() {
+  const key = document.documentElement.getAttribute("data-theme") + DARKQ.matches;
+  if (key === colorKey && COLORS) return COLORS;
+  const cs = getComputedStyle(document.documentElement), rgb = v => { const h = cs.getPropertyValue(v).trim().replace("#", ""); return [0, 2, 4].map(i => parseInt(h.slice(i, i + 2), 16)); };
+  const sky = rgb("--sky");
+  COLORS = { sky, dark: sky[0] + sky[1] + sky[2] < 200, fg: rgb("--fg"), bad: rgb("--bad"), warn: rgb("--warn"), core: rgb("--accent"),
+    fam: Object.fromEntries(D.families.map(f => [f, rgb("--f-" + f)])) };
+  colorKey = key;
+  return COLORS;
+}
+const rgba = (c, a) => `rgba(${c[0]},${c[1]},${c[2]},${a})`;
+
+// camera: screen = world * k + (x, y). Depth seen at a zoom: 2 (families and their roots) at the overview
+const depthAt = k => 2 + Math.max(0, Math.log2(k / K0) * 1.4);
+const kFor = depth => K0 * Math.pow(2, (depth - 2) / 1.4);
+function sub(id, below) { const out = [id], d0 = G.N[id].d; (function s(i) { for (const c of G.N[i].kids) if (G.N[c].d <= d0 + below) { out.push(c); s(c); } })(id); return out; }
+// frame an element and its next two levels, in the free part of the stage (left of the sheet, or above it on a phone)
+function fit(id) {
+  if (!G.N[id]) id = "";
+  const sh = $(".sheet"), side = sh && SW > 700, w = side ? SW - sh.offsetWidth - 20 : SW, h = sh && !side ? Math.max(SH * .4, SH - sh.offsetHeight - 20) : SH;
+  const ids = id ? sub(id, 2) : G.ids.filter(i => G.N[i].d <= 2), ps = ids.map(i => P[i]);
+  const x0 = Math.min(...ps.map(p => p[0])), x1 = Math.max(...ps.map(p => p[0])), y0 = Math.min(...ps.map(p => p[1])), y1 = Math.max(...ps.map(p => p[1]));
+  // margins in pixels: names run about 140 px to the right of their point
+  const kf = Math.min((w - 200) / (x1 - x0 || 1), (h - 80) / (y1 - y0 || 1)), k = id ? Math.min(K0 * 80, Math.max(kFor(G.N[id].d + 2.2), kf)) : kf;
+  return { k, x: w / 2 - 60 - (x0 + x1) / 2 * k, y: h / 2 - (y0 + y1) / 2 * k };
+}
+function clamp(c) {
+  const k = Math.min(Math.max(c.k, K0 * .4), K0 * 80), g = k / c.k;
+  return { k, x: SW / 2 - (SW / 2 - c.x) * g, y: SH / 2 - (SH / 2 - c.y) * g };
+}
+const zoomAt = (p, f) => { CAM = clamp({ k: CAM.k * f, x: p[0] - (p[0] - CAM.x) * f, y: p[1] - (p[1] - CAM.y) * f }); };
+// fly: zoom on a log curve, centre in a line (ease out)
+function fly(to) {
+  cancelAnimationFrame(anim);
+  if (REDUCED.matches || !CAM) { CAM = to; return; }
+  const from = CAM, t0 = performance.now(), mid = c => [(SW / 2 - c.x) / c.k, (SH / 2 - c.y) / c.k], a = mid(from), b = mid(to);
+  const step = now => {
+    const p = 1 - Math.pow(1 - Math.min(1, (now - t0) / 650), 3), k = from.k * Math.pow(to.k / from.k, p);
+    CAM = { k, x: SW / 2 - (a[0] + (b[0] - a[0]) * p) * k, y: SH / 2 - (a[1] + (b[1] - a[1]) * p) * k };
+    if (p < 1) anim = requestAnimationFrame(step);
+  };
+  anim = requestAnimationFrame(step);
+}
+
+// drawing
+const S = p => [p[0] * CAM.k + CAM.x, p[1] * CAM.k + CAM.y];
+function at(id) {  // an element grows out of its parent as it appears
+  const v = VIS[id], up = G.N[id].up;
+  if (v >= 1 || up === null) return P[id];
+  const q = at(up); return [q[0] + (P[id][0] - q[0]) * v, q[1] + (P[id][1] - q[1]) * v];
+}
+const bend = (a, b, k) => [(a[0] + b[0]) / 2 - (b[1] - a[1]) * k, (a[1] + b[1]) / 2 + (b[0] - a[0]) * k];
+const onCurve = (a, c, b, s) => [(1 - s) ** 2 * a[0] + 2 * (1 - s) * s * c[0] + s * s * b[0], (1 - s) ** 2 * a[1] + 2 * (1 - s) * s * c[1] + s * s * b[1]];
+const STARS = Array.from({ length: 200 }, (_, i) => [seeded("sx" + i) + .5, seeded("sy" + i) + .5, (seeded("ss" + i) + .5) * 1.2 + .2, i]);
+const colOf = (C, id) => G.N[id].f ? C.fam[G.N[id].f] : C.core;
+function spawn(now) {
+  if (REDUCED.matches || now - lastSpawn < 150) return;
+  lastSpawn = now;
+  const from = G.N[""].kids.filter(f => G.N[f].kids.length);
+  if (from.length) PULSES.push({ u: "", v: from[Math.floor(Math.random() * from.length)], s: 0, sp: .012 + Math.random() * .01 });
+}
+function stepPulses() {
+  const next = [];
+  for (const p of PULSES) {
+    if (!G.N[p.v]) continue;
+    p.s += p.sp;
+    if (p.s < 1) { next.push(p); continue; }
+    const kids = G.N[p.v].kids.filter(c => VIS[c] > .5);
+    if (kids.length && Math.random() < .9) {
+      next.push({ u: p.v, v: kids[Math.floor(Math.random() * kids.length)], s: 0, sp: p.sp });
+      if (kids.length > 1 && Math.random() < .25) next.push({ u: p.v, v: kids[Math.floor(Math.random() * kids.length)], s: 0, sp: p.sp * 1.1 });
+    }
+  }
+  PULSES = next.slice(-240);
+}
+function frame(now) {
+  const cv = $("#sky");
+  if (!cv || !G || !CAM) { loopOn = false; return; }
+  const C = colors(), ctx = cv.getContext("2d"), dpr = devicePixelRatio || 1, { N, E, X, ids } = G;
+  if (cv.width !== Math.round(SW * dpr)) { cv.width = Math.round(SW * dpr); cv.height = Math.round(SH * dpr); }
+  // what is visible: the levels this zoom reaches, plus the way down to the current element and its children
+  const want = depthAt(CAM.k), keep = new Set();
+  for (let i = FOCUS; i !== null && N[i]; i = N[i].up) keep.add(i);
+  if (N[FOCUS]) N[FOCUS].kids.forEach(c => keep.add(c));
+  for (const id of ids) {
+    const goal = N[id].d <= want || keep.has(id) ? 1 : 0;
+    VIS[id] += (goal - VIS[id]) * (REDUCED.matches ? 1 : .12);
+    if (Math.abs(VIS[id] - goal) < .01) VIS[id] = goal;
+  }
+  spawn(now); stepPulses();
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  ctx.fillStyle = rgba(C.sky, 1); ctx.fillRect(0, 0, SW, SH);
+  if (C.dark) for (const s of STARS) {
+    const x = ((s[0] * SW + CAM.x * .03) % SW + SW) % SW, y = ((s[1] * SH + CAM.y * .03) % SH + SH) % SH;
+    ctx.fillStyle = `rgba(200,210,255,${.12 + (REDUCED.matches ? .1 : .22 * Math.sin(now / 1400 + s[3]) ** 2)})`; ctx.fillRect(x, y, s[2], s[2]);
+  }
+  const lit = HOVER || FOCUS, near = HOVER ? new Set([HOVER, N[HOVER].up, ...N[HOVER].kids, ...X.filter(e => e.includes(HOVER)).flat()]) : null;
+  ctx.globalCompositeOperation = C.dark ? "lighter" : "source-over";
+  for (const [u, v] of E) {  // fibres
+    if (VIS[v] < .02) continue;
+    const a = S(at(u)), b = S(at(v)), c = bend(a, b, .12), on = near && near.has(u) && near.has(v);
+    ctx.strokeStyle = rgba(colOf(C, v), (on ? .85 : near ? .08 : C.dark ? .28 : .4) * VIS[v]);
+    ctx.lineWidth = on ? 2 : Math.max(.6, 2.2 - N[v].d * .3);
+    ctx.beginPath(); ctx.moveTo(a[0], a[1]); ctx.quadraticCurveTo(c[0], c[1], b[0], b[1]); ctx.stroke();
+  }
+  if (lit) for (const [u, v] of X) {  // synapses to the same machine in another family
+    if (u !== lit && v !== lit) continue;
+    const a = S(P[u]), b = S(P[v]), c = bend(a, b, .25);
+    ctx.setLineDash([4, 6]); ctx.lineDashOffset = REDUCED.matches ? 0 : -now / 40;
+    ctx.strokeStyle = rgba(C.core, .85); ctx.lineWidth = 1.5;
+    ctx.beginPath(); ctx.moveTo(a[0], a[1]); ctx.quadraticCurveTo(c[0], c[1], b[0], b[1]); ctx.stroke(); ctx.setLineDash([]);
+  }
+  for (const p of PULSES) {  // impulses
+    if (!N[p.u] || VIS[p.v] < .5) continue;
+    const a = S(at(p.u)), b = S(at(p.v)), q = onCurve(a, bend(a, b, .12), b, p.s), col = N[p.v].lv === "down" ? C.bad : colOf(C, p.v);
+    const g = ctx.createRadialGradient(q[0], q[1], 0, q[0], q[1], 7); g.addColorStop(0, rgba(col, .95)); g.addColorStop(1, rgba(col, 0));
+    ctx.fillStyle = g; ctx.beginPath(); ctx.arc(q[0], q[1], 7, 0, 6.29); ctx.fill();
+  }
+  const zs = Math.min(1.8, Math.max(.8, Math.sqrt(CAM.k / K0))), drawn = [];
+  for (const id of ids) {  // somas: halo, body, a beating ring for a state to watch or a failure
+    const v = VIS[id];
+    if (v < .02) continue;
+    const p = S(at(id));
+    if (p[0] < -60 || p[1] < -60 || p[0] > SW + 60 || p[1] > SH + 60) continue;
+    const r = [16, 11, 7, 5, 4, 3.2, 2.6][Math.min(N[id].d, 6)] * zs * (.4 + .6 * v), col = colOf(C, id), dim = near && !near.has(id) ? .25 : 1;
+    const halo = ctx.createRadialGradient(p[0], p[1], 0, p[0], p[1], r * 4);
+    halo.addColorStop(0, rgba(col, (C.dark ? .3 : .22) * v * dim)); halo.addColorStop(1, rgba(col, 0));
+    ctx.fillStyle = halo; ctx.beginPath(); ctx.arc(p[0], p[1], r * 4, 0, 6.29); ctx.fill();
+    ctx.fillStyle = rgba(C.dark ? col.map(x => Math.min(255, x + 20)) : col, v * dim); ctx.beginPath(); ctx.arc(p[0], p[1], r, 0, 6.29); ctx.fill();
+    const lv = N[id].lv === "down" ? C.bad : N[id].lv === "warn" ? C.warn : null;
+    if (lv) {
+      const beat = REDUCED.matches ? 1 : 1 + .35 * Math.abs(Math.sin(now / 380));
+      ctx.strokeStyle = rgba(lv, .9 * v * dim); ctx.lineWidth = 2; ctx.beginPath(); ctx.arc(p[0], p[1], r * 1.6 * beat, 0, 6.29); ctx.stroke();
+    }
+    if (id === FOCUS && id) { ctx.strokeStyle = rgba(C.fg, .6); ctx.lineWidth = 1.5; ctx.beginPath(); ctx.arc(p[0], p[1], r + 5, 0, 6.29); ctx.stroke(); }
+    const ds = dash(id, want);
+    if (ds) ds.rings.forEach(([, val], i) => {  // one arc per percentage, its length the value
+      const rr = r + 9 + i * 6, a0 = -Math.PI / 2, tone = val >= 90 ? C.bad : val >= 75 ? C.warn : col;
+      ctx.lineCap = "round"; ctx.lineWidth = 3.5;
+      ctx.strokeStyle = rgba(C.fg, .08 * v); ctx.beginPath(); ctx.arc(p[0], p[1], rr, 0, 6.29); ctx.stroke();
+      if (val) { ctx.strokeStyle = rgba(tone, .9 * v); ctx.beginPath(); ctx.arc(p[0], p[1], rr, a0, a0 + Math.min(val, 100) / 100 * 2 * Math.PI); ctx.stroke(); }
+      ctx.lineCap = "butt";
+    });
+    drawn.push([id, p, r, ds]);
+  }
+  ctx.globalCompositeOperation = "source-over";
+  ctx.textBaseline = "middle"; ctx.lineJoin = "round";
+  // names: the somas, then each level once fully grown in. A name never covers another: the hovered, the
+  // current and their neighbours first, then the upper levels and the states to watch; one that finds no
+  // free place (right, left, below, above its point) waits for the hover or a closer zoom
+  const font = d => (d <= 1 ? "600 15px " : d === 2 ? "600 13px " : "12px ") + "system-ui, -apple-system, 'Segoe UI', sans-serif";
+  const must = id => id === HOVER || id === FOCUS || (near && near.has(id));
+  const rank = id => (must(id) ? 0 : 1e4) + N[id].d * 100 + ({ down: 0, warn: 1 }[N[id].lv] ?? 2);
+  const boxes = [], hits = b => boxes.some(o => b[0] < o[2] && b[2] > o[0] && b[1] < o[3] && b[3] > o[1]);
+  const names = drawn.filter(([id]) => must(id) || (VIS[id] > .95 && N[id].d <= Math.floor(want + .2))).sort((a, b) => rank(a[0]) - rank(b[0]));
+  for (const [id, p, r, ds] of names) {
+    const d = N[id].d, name = N[id].name;
+    ctx.font = font(d);
+    const w = ctx.measureText(name).width, h = d <= 1 ? 18 : 15, xr = p[0] + r + (ds ? 15 + ds.rings.length * 6 : 6);
+    // [x, y, align] for each place, then its box; a name with its measures stays on the right, over its pills
+    const spots = (ds ? [[xr, p[1], "left"]] : [[xr, p[1], "left"], [p[0] - r - 6, p[1], "right"], [p[0], p[1] + r + 4 + h / 2, "center"], [p[0], p[1] - r - 4 - h / 2, "center"]])
+      .map(([x, y, al]) => { const l = al === "left" ? x : al === "right" ? x - w : x - w / 2; return [x, y, al, [l - 2, y - h / 2, l + w + 2, y + h / 2]]; });
+    const spot = spots.find(s => !hits(s[3])) || (must(id) ? spots[0] : null);
+    if (!spot) continue;
+    const [x0, y, al, box] = spot;
+    boxes.push(box);
+    if (ds) boxes.push([xr, p[1] + 9, xr + 140, p[1] + 21 + ds.pills.length * 21]);
+    ctx.textAlign = al;
+    ctx.strokeStyle = rgba(C.sky, .85); ctx.lineWidth = 3; ctx.strokeText(name, x0, y);
+    ctx.fillStyle = rgba(C.fg, near && !near.has(id) ? .3 : .92); ctx.fillText(name, x0, y);
+    ctx.textAlign = "left";
+    if (!ds) continue;
+    // its last values, a column of pills under the name hung on a hairline
+    const col = colOf(C, id), y0 = p[1] + 21, x1 = x0 + 8;
+    ctx.font = "11px system-ui, -apple-system, 'Segoe UI', sans-serif"; ctx.strokeStyle = rgba(C.fg, .25); ctx.lineWidth = 1;
+    ctx.beginPath(); ctx.moveTo(x0, p[1] + 9); ctx.lineTo(x0, y0 + (ds.pills.length - 1) * 21); ctx.stroke();
+    ds.pills.forEach((txt, i) => {
+      const y = y0 + i * 21, w = ctx.measureText(txt).width + 12;
+      ctx.strokeStyle = rgba(C.fg, .25); ctx.beginPath(); ctx.moveTo(x0, y); ctx.lineTo(x1, y); ctx.stroke();
+      ctx.fillStyle = rgba(C.sky, .92); ctx.strokeStyle = rgba(col, .55); ctx.beginPath();
+      if (ctx.roundRect) ctx.roundRect(x1, y - 9, w, 18, 9); else ctx.rect(x1, y - 9, w, 18);
+      ctx.fill(); ctx.stroke();
+      ctx.fillStyle = rgba(C.fg, .9); ctx.fillText(txt, x1 + 6, y);
+    });
+  }
+  DRAWN = drawn;
+  anim2 = requestAnimationFrame(frame);
+}
+let anim2 = 0;
+// zoomed in on an element (the current or hovered one) that has series: its measures around the point,
+// percentages as rings, every last value as a pill under the name
+function dash(id, want) {
+  const x = G.N[id].x;
+  if (!x || !id || (id !== FOCUS && id !== HOVER) || want < G.N[id].d + 1.5) return null;
+  const s = x.panels.filter(p => p.type === "series" && Array.isArray(p.lines) && p.lines.length);
+  if (!s.length) return null;
+  const arrow = { receive: "↓ ", transmit: "↑ " };
+  return { rings: s.filter(p => p.unit === "%" && p.lines.length === 1).slice(0, 4).map(p => [p.title, lastOf(p.lines[0])]),
+    pills: s.map(p => p.lines.length > 1 ? p.lines.map(l => (arrow[l.name] || t(l.name) + " ") + metric(lastOf(l), p.unit)).join("  ")
+      : t(p.title || "") + " " + metric(lastOf(p.lines[0]), p.unit)) };
+}
+const pick = (x, y) => { let best = null, bd = 16; for (const [id, p, r] of DRAWN) { const d = Math.hypot(p[0] - x, p[1] - y) - r; if (d < bd) { bd = d; best = id; } } return best; };
+const linkOf = id => !id ? "#" : id.startsWith("fam:") ? "#" + famSlug(id.slice(4)) : href(D.nodes[id]);
+
+function sheet(f, x) {
+  if (!SHEET || (!f && !x)) return "";
+  const solo = f && !x && D.roots[f].length === 1 ? D.nodes[D.roots[f][0]] : null, y = x || solo;
+  const name = x ? x.name || x.id : solo ? solo.name : t(f), kind = y ? y.kind : "";
+  return `<aside class="sheet" aria-label="${esc(name)}"><div class="head">${dot({ rollup: x ? x.rollup : worst(D.roots[f]) })}<h1>${esc(name)}</h1>
+    ${kind ? `<span class="pill fam" style="--c:var(--f-${y.family})">${esc(t(kind))}</span>` : ""}<button type="button" class="x" data-close aria-label="${esc(t("Close"))}">×</button></div>
+    ${!x ? tally(f) : ""}${y ? about(y) : ""}<div class="chips"><button type="button" data-view="tiles">${esc(t("See as tiles"))}</button></div></aside>`;
+}
+
+function mapPage(f, path) {
+  let x = null, chain = [];
+  if (path.length) {
+    const id = BY_PATH[f + "/" + path.join("/")];
+    if (!id) return crumbs(f, []) + `<h1>${esc(t("Not found: {p}", { p: path.join("/") }))}</h1><p><a href="#">${esc(t("Back to the overview"))}</a></p>`;
+    x = D.nodes[id];
+    for (let i = 1; i < path.length; i++) chain.push(D.nodes[BY_PATH[f + "/" + path.slice(0, i).join("/")]]);
+  }
+  FOCUS = x ? (G.ALIAS[x.id] || x.id) : f ? "fam:" + f : "";
+  return crumbs(f, x ? chain : []) + banners() + `<div class="mapwrap"><div class="stage" id="stage" tabindex="0" role="img" aria-label="${esc(t("Infrastructure map"))}"><canvas id="sky"></canvas></div>
+    <div class="zoom"><button type="button" data-zoom="in" aria-label="${esc(t("Zoom in"))}" title="${esc(t("Zoom in"))}">+</button><button type="button" data-zoom="out" aria-label="${esc(t("Zoom out"))}" title="${esc(t("Zoom out"))}">−</button><button type="button" data-zoom="all" aria-label="${esc(t("Show all"))}" title="${esc(t("Show all"))}">⤢</button></div>
+    ${sheet(f, x)}</div><p class="sub">${esc(t("Scroll or pinch to zoom: the next levels grow out of their parent. Click a point to go there and open its details; hover shows its links, the same machine in another family included."))}</p>`;
+}
+
+// gestures: one pointer drags, two pinch, a tap is a click on the nearest point, a double tap on empty sky zooms in
+const PTS = new Map();
+let moved = false, downAt = null, lastTap = null;
+const stagePos = e => { const r = $("#stage").getBoundingClientRect(); return [e.clientX - r.left, e.clientY - r.top]; };
+function size() {
+  const st = $("#stage");
+  st.style.height = Math.max(360, innerHeight - (st.getBoundingClientRect().top + scrollY) - (innerWidth > 820 ? 70 : 50)) + "px";
+  SW = st.clientWidth; SH = st.clientHeight;
+  const ps = G.ids.filter(i => G.N[i].d <= 2).map(i => P[i]);
+  K0 = Math.min((SW - 200) / (Math.max(...ps.map(p => p[0])) - Math.min(...ps.map(p => p[0])) || 1), (SH - 80) / (Math.max(...ps.map(p => p[1])) - Math.min(...ps.map(p => p[1])) || 1));
+}
+function mount(how) {
+  const st = $("#stage");
+  size();
+  if (how === "jump" || !CAM) CAM = fit(FOCUS);
+  else if (how === "fly") fly(fit(FOCUS));
+  if (!loopOn) { loopOn = true; anim2 = requestAnimationFrame(frame); }
+  st.addEventListener("wheel", e => {
+    e.preventDefault(); cancelAnimationFrame(anim);
+    zoomAt(stagePos(e), Math.exp(-e.deltaY * (e.deltaMode ? 16 : 1) * (e.ctrlKey ? .01 : .0015)));
+  }, { passive: false });
+  st.addEventListener("pointerdown", e => {
+    if (e.button) return;
+    PTS.set(e.pointerId, stagePos(e));
+    if (PTS.size === 1) { moved = false; downAt = stagePos(e); }
+    cancelAnimationFrame(anim);
+  });
+  st.addEventListener("pointerleave", () => { HOVER = null; st.classList.remove("hand"); });
+  st.addEventListener("keydown", e => {
+    const k = { "+": 1.5, "=": 1.5, "-": 1 / 1.5 }[e.key], pan = { ArrowLeft: [60, 0], ArrowRight: [-60, 0], ArrowUp: [0, 60], ArrowDown: [0, -60] }[e.key];
+    if (k) zoomAt([SW / 2, SH / 2], k); else if (pan) CAM = { ...CAM, x: CAM.x + pan[0], y: CAM.y + pan[1] }; else if (e.key === "0") fly(fit("")); else return;
+    e.preventDefault();
+  });
+}
+addEventListener("pointermove", e => {
+  const st = $("#stage");
+  if (!st) return;
+  if (!PTS.has(e.pointerId)) {
+    if (e.target.closest && e.target.closest("#stage") && e.pointerType === "mouse") { HOVER = pick(...stagePos(e)); st.classList.toggle("hand", !!HOVER); }
+    return;
+  }
+  const before = [...PTS.values()], old = PTS.get(e.pointerId), p = stagePos(e);
+  PTS.set(e.pointerId, p);
+  if (!moved && PTS.size === 1 && Math.hypot(p[0] - downAt[0], p[1] - downAt[1]) < 6) return;
+  moved = true; st.classList.add("grab");
+  if (PTS.size === 1) CAM = { ...CAM, x: CAM.x + p[0] - old[0], y: CAM.y + p[1] - old[1] };
+  else if (PTS.size === 2) {
+    const [a, b] = before, [c, d] = [...PTS.values()], m0 = [(a[0] + b[0]) / 2, (a[1] + b[1]) / 2], m1 = [(c[0] + d[0]) / 2, (c[1] + d[1]) / 2];
+    const f = (Math.hypot(c[0] - d[0], c[1] - d[1]) || 1) / (Math.hypot(a[0] - b[0], a[1] - b[1]) || 1);
+    CAM = clamp({ k: CAM.k * f, x: m1[0] - (m0[0] - CAM.x) * f, y: m1[1] - (m0[1] - CAM.y) * f });
+  }
+});
+function pointerEnd(e) {
+  if (!PTS.delete(e.pointerId)) return;
+  const st = $("#stage");
+  if (!st) return PTS.clear();
+  if (!PTS.size) st.classList.remove("grab");
+  if (moved || PTS.size || e.type === "pointercancel") return;
+  const p = stagePos(e), id = pick(...p), now = performance.now();
+  if (id !== null) {  // a point: go there (its address), and open its details
+    lastTap = null;
+    const h = linkOf(id);
+    if (h === (location.hash || "#")) { SHEET = true; fly(fit(FOCUS)); if (!$(".sheet")) route(); }
+    else location.hash = h;
+    return;
+  }
+  if (lastTap && now - lastTap.t < 350 && Math.hypot(p[0] - lastTap.p[0], p[1] - lastTap.p[1]) < 24) {
+    lastTap = null; fly(clamp({ k: CAM.k * 2.5, x: p[0] - (p[0] - CAM.x) * 2.5, y: p[1] - (p[1] - CAM.y) * 2.5 }));
+  } else lastTap = { t: now, p };
+}
+addEventListener("pointerup", pointerEnd);
+addEventListener("pointercancel", pointerEnd);
+addEventListener("resize", () => { if ($("#stage")) { const c = CAM && [(SW / 2 - CAM.x) / CAM.k, (SH / 2 - CAM.y) / CAM.k]; size(); if (c) CAM = { ...CAM, x: SW / 2 - c[0] * CAM.k, y: SH / 2 - c[1] * CAM.k }; } });
+
+// tiles <-> map: the current element keeps its place (cm-focus) through a view transition
+function setMode(v) {
+  if (v === MODE) return;
+  const go = () => { MODE = v; try { localStorage.setItem("cairn-map-view", v); } catch (e) {} JUMP = true; route(); };
+  if (document.startViewTransition && !REDUCED.matches) document.startViewTransition(go); else go();
+}
+$("#main").addEventListener("click", e => {
+  const v = e.target.closest("[data-view]"), z = e.target.closest("[data-zoom]");
+  const g = e.target.closest("[data-group]");
+  if (g && g.dataset.group !== PLACES) {  // the addresses below the family change: back to its page
+    PLACES = g.dataset.group; try { localStorage.setItem("cairn-map-places", PLACES); } catch (e) {}
+    location.hash = "#" + famSlug("physical"); load();
+  }
+  if (v) setMode(v.dataset.view);
+  else if (e.target.closest("[data-close]")) { SHEET = false; const s = $(".sheet"); if (s) s.remove(); }
+  else if (z && CAM) {
+    const f = z.dataset.zoom === "in" ? 2 : .5;
+    fly(z.dataset.zoom === "all" ? fit("") : clamp({ k: CAM.k * f, x: SW / 2 - (SW / 2 - CAM.x) * f, y: SH / 2 - (SH / 2 - CAM.y) * f }));
+  }
+});
+
+function modules() {
+  const rows = D.modules.map(m => `<tr><td><b>${esc(m.name)}</b></td><td class="${m.error ? "bad" : "okc"}">${esc(m.error ? m.error : t("answering"))}</td>
+    <td>${esc(when(m.ok))}</td><td>${m.nodes}${m.dropped ? ` <span class="bad">(${m.dropped} ${esc(t("Items dropped (wrong format)"))})</span>` : ""}</td></tr>`).join("");
+  return `<div class="head"><h1>${esc(t("Modules"))}</h1></div><p class="lead">${esc(t("The map is built from these modules, read again at their own interval. It stores nothing and writes nothing."))}</p>
+    <table class="mods"><tr><th>${esc(t("Module"))}</th><th>${esc(t("State"))}</th><th>${esc(t("Last good read"))}</th><th>${esc(t("Elements"))}</th></tr>${rows}</table>
+    <p class="sub">Cairn Map ${esc(D.version)}</p>`;
+}
+
+// the Settings page: each machine's place and kind, the modules on or off; saved on the server (settings_file)
+function settings() {
+  const S = D.settings || {}, ro = S.editable ? "" : " disabled";
+  const ms = Object.values(D.nodes).filter(x => x.id.startsWith("phys:")).sort((a, b) => a.name.localeCompare(b.name));
+  const places = [...new Set(ms.map(x => x.attrs.location).filter(Boolean))].sort();
+  const rows = ms.map(x => `<tr data-m="${esc(x.name)}" data-k0="${esc(x.kind)}"><td><b>${esc(x.name)}</b></td>
+    <td><input list="cm-places" data-place value="${esc(x.attrs.location || "")}" placeholder="${esc(t("No place"))}" aria-label="${esc(t("location") + " · " + x.name)}"${ro}></td>
+    <td><select data-kind aria-label="${esc(t("Kind") + " · " + x.name)}"${ro}>${(S.kind_list || []).map(k => `<option value="${k}"${k === x.kind ? " selected" : ""}>${esc(t(k))}</option>`).join("")}</select></td></tr>`).join("");
+  const mods = D.modules.map(m => `<tr><td><label><input type="checkbox" data-mod="${esc(m.name)}"${m.on !== false ? " checked" : ""}${ro}> <b>${esc(m.name)}</b></label></td>
+    <td class="${m.error ? "bad" : "okc"}">${esc(m.on === false ? t("off") : m.error ? m.error : t("answering"))}</td></tr>`).join("");
+  return `<div class="head"><h1>${esc(t("Settings"))}</h1></div>
+    <p class="lead">${esc(t(S.editable ? "Saved on the server for everyone. The rest stays in the tools that own the data." : "Read only: no settings_file in the configuration."))}</p>
+    <form class="set" id="set"><datalist id="cm-places">${places.map(p => `<option value="${esc(p)}">`).join("")}</datalist>
+    <h2>${esc(t("Machines"))}</h2><p class="sub">${esc(t("A room or a rack per machine (type a new one to create it); once one is set, the Physical page can group by place."))}</p>
+    <table class="mods"><tr><th>${esc(t("Machine"))}</th><th>${esc(t("location"))}</th><th>${esc(t("Kind"))}</th></tr>${rows}</table>
+    <h2>${esc(t("Modules"))}</h2><p class="sub">${esc(t("A module switched off is no longer read; its elements leave the map."))}</p>
+    <table class="mods">${mods}</table>
+    <div class="save"><button type="submit"${ro}>${esc(t("Save"))}</button><span id="set-msg" role="status"></span></div></form>`;
+}
+async function saveSettings(f) {
+  const S = D.settings || {}, places = {}, kinds = {};
+  for (const tr of f.querySelectorAll("tr[data-m]")) {
+    const m = tr.dataset.m, pl = tr.querySelector("[data-place]").value.trim(), k = tr.querySelector("[data-kind]").value;
+    if (pl) (places[pl] = places[pl] || []).push(m);
+    if (k !== tr.dataset.k0 || (S.kinds || {})[m]) kinds[m] = k;
+  }
+  const body = { places, kinds, disabled: [...f.querySelectorAll("[data-mod]")].filter(c => !c.checked).map(c => c.dataset.mod) };
+  const msg = $("#set-msg"); msg.textContent = t("Saving…");
+  try {
+    const r = await fetch("api/settings", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) });
+    if (!r.ok) throw new Error((await r.text()).trim() || r.status);
+    VIEW = ""; await load(); $("#set-msg").textContent = t("Saved.");
+  } catch (e) { msg.textContent = t("Not saved: {e}", { e: e.message }); }
+}
+addEventListener("submit", e => { if (e.target.id === "set") { e.preventDefault(); saveSettings(e.target); } });
+
+function route() {
+  if (!D) return;
+  const parts = location.hash.slice(1).split("/").filter(Boolean).map(decodeURIComponent);
+  const map = MODE === "map", key = location.hash, moved_ = key !== VIEW;
+  let html, cur = "#";
+  if (moved_) SHEET = true;
+  if (!parts.length) html = map ? mapPage(null, []) : overview();
+  else if (parts[0] === "modules") { html = modules(); cur = "#modules"; }
+  else if (parts[0] === "settings") {
+    if (!moved_ && $("#set")) { nav("#settings"); return; }  // the minute's reload keeps what is being typed
+    html = settings(); cur = "#settings";
+  }
+  else {
+    const f = famOf(parts[0]);
+    if (f) { html = map ? mapPage(f, parts.slice(1)) : level(f, parts.slice(1)); cur = "#" + famSlug(f); }
+    else html = `<h1>${esc(t("Not found: {p}", { p: parts.join("/") }))}</h1><p><a href="#">${esc(t("Back to the overview"))}</a></p>`;
+  }
+  nav(cur);
+  const m = $("#main"), keepScroll = !moved_ && $(".sheet") ? $(".sheet").scrollTop : 0;
+  m.innerHTML = html;
+  if (keepScroll && $(".sheet")) $(".sheet").scrollTop = keepScroll;
+  m.classList.toggle("enter", moved_ && !(map && $("#stage")));
+  if (moved_ && !KEEP) scrollTo(0, 0);
+  VIEW = key;
+  fillCharts();
+  // map: a click on a box keeps the camera, an address or a link flies to its element, the view switch jumps
+  if ($("#stage")) mount(JUMP ? "jump" : KEEP || !moved_ ? "keep" : "fly");
+  JUMP = KEEP = false;
+}
+
+function index() {
+  BY_PATH = {};
+  for (const [id, x] of Object.entries(D.nodes)) if (x.path && x.path.length) BY_PATH[x.family + "/" + x.path.join("/")] = id;
+}
+
+async function load() {
+  try {
+    const r = await fetch("api/map" + (PLACES ? "?places=1" : ""), { headers: { Accept: "application/json" } });
+    if (!r.ok) throw new Error(r.status + " " + r.statusText);
+    D = await r.json();
+  } catch (e) {
+    if (!D) $("#main").innerHTML = `<p class="banner">${esc(t("Could not load the map: {e}", { e: e.message }))}</p>`;
+    return;
+  }
+  let pick = "";
+  try { pick = localStorage.getItem("cairn-map-lang") || ""; } catch (e) {}
+  LANG = (pick || D.lang || "en").slice(0, 2);
+  document.documentElement.lang = LANG;
+  for (const x of Object.values(D.nodes)) if (x.kind === "group") x.name = t(x.name);  // "Servers", "Storage"… in the page's language
+  $("#find-label").textContent = t("Search");
+  $("#brand-title").textContent = D.title;
+  $("#brand-sub").textContent = t("Updated {t}", { t: new Date(D.time * 1000).toLocaleTimeString(LANG, { timeStyle: "short" }) });
+  index();
+  prepare();
+  const keep = VIEW; VIEW = keep || null;
+  route();
+}
+
+// ---------- search (a palette over a veil) and keyboard shortcuts ----------
+const norm = s => String(s ?? "").normalize("NFKD").replace(/[̀-ͯ]/g, "").toLowerCase();
+const byName = (a, b) => a.localeCompare(b, LANG, { numeric: true, sensitivity: "base" });
+let FOUND = [], SEL = 0, BACK = null;
+// every word must appear in the name, IP, aliases (domains, MAC…), kind, family or path; the name first, then the shortest path
+function search(q) {
+  const words = norm(q).trim().split(/\s+/).filter(Boolean), q0 = words.join(" ");
+  if (!words.length) return [];
+  return Object.entries(D.nodes).filter(([, x]) => x.path).map(([id, x]) => {
+    const n = norm(x.name), hay = norm([x.name, x.attrs.ip, ...x.aliases, t(x.kind), t(x.family), x.path.join(" ")].join(" "));
+    if (!words.every(w => hay.includes(w))) return null;
+    return [n === q0 ? 0 : n.startsWith(q0) ? 1 : n.includes(q0) ? 2 : 3, x.path.length, id];
+  }).filter(Boolean).sort((a, b) => a[0] - b[0] || a[1] - b[1] || byName(D.nodes[a[2]].name, D.nodes[b[2]].name)).slice(0, 40).map(r => r[2]);
+}
+function mark(name, q) {
+  const w = norm(q).trim(), i = w ? norm(name).indexOf(w) : -1;
+  return i < 0 ? esc(name) : esc(name.slice(0, i)) + "<mark>" + esc(name.slice(i, i + w.length)) + "</mark>" + esc(name.slice(i + w.length));
+}
+function results(q) {
+  FOUND = search(q); SEL = Math.min(SEL, Math.max(0, FOUND.length - 1));
+  if (!q.trim()) return `<p class="empty">${esc(t("{n} elements", { n: Object.keys(D.nodes).length }))}</p>`;
+  if (!FOUND.length) return `<p class="empty">${esc(t("Nothing for “{q}”", { q }))}</p>`;
+  return FOUND.map((id, i) => {
+    const x = D.nodes[id], up = x.path.slice(0, -1).map((_, j) => (D.nodes[BY_PATH[x.family + "/" + x.path.slice(0, j + 1).join("/")]] || {}).name).filter(Boolean);
+    return `<a class="res" role="option" id="res${i}" aria-selected="${i === SEL}" href="${href(x)}" data-i="${i}">${dot(x)}<b>${mark(x.name || x.id, q)}</b>
+      <span class="path">${esc(up.join(" › "))}</span>${x.attrs.ip ? `<span class="ip">${esc(x.attrs.ip)}</span>` : ""}<span class="pill fam" style="--c:var(--f-${x.family})">${esc(t(x.family))} · ${esc(t(x.kind))}</span></a>`;
+  }).join("");
+}
+function veil(html, label) {
+  closeVeil();
+  BACK = document.activeElement;
+  const v = document.createElement("div");
+  v.className = "veil";
+  v.innerHTML = `<div class="pal" role="dialog" aria-modal="true" aria-label="${esc(label)}">${html}</div>`;
+  v.addEventListener("click", e => { if (e.target === v) closeVeil(); });
+  document.body.appendChild(v);
+  return v;
+}
+function closeVeil() {
+  const v = $(".veil");
+  if (!v) return false;
+  v.remove();
+  if (BACK && BACK.focus) BACK.focus();
+  return true;
+}
+function palette() {
+  if (!D) return;
+  const v = veil(`<input type="search" role="combobox" aria-expanded="true" aria-controls="found" aria-autocomplete="list" placeholder="${esc(t("Go to… (name, IP, kind, path)"))}" aria-label="${esc(t("Search"))}" autocomplete="off" spellcheck="false">
+    <div class="list" id="found" role="listbox"></div><div class="foot"><span><kbd>↑</kbd> <kbd>↓</kbd> ${esc(t("choose"))}</span><span><kbd>${esc(t("Enter"))}</kbd> ${esc(t("go"))}</span><span><kbd>${esc(t("Esc"))}</kbd> ${esc(t("close"))}</span></div>`, t("Search"));
+  const i = v.querySelector("input"), l = v.querySelector(".list");
+  const draw = () => {
+    l.innerHTML = results(i.value);
+    i.setAttribute("aria-activedescendant", FOUND.length ? "res" + SEL : "");
+    const s = l.querySelector('[aria-selected="true"]');
+    if (s) s.scrollIntoView({ block: "nearest" });
+  };
+  i.addEventListener("input", () => { SEL = 0; draw(); });
+  i.addEventListener("keydown", e => {
+    if (e.key === "ArrowDown" || e.key === "ArrowUp") { SEL = Math.max(0, Math.min(FOUND.length - 1, SEL + (e.key === "ArrowDown" ? 1 : -1))); draw(); e.preventDefault(); }
+    else if (e.key === "Enter" && FOUND[SEL]) { e.preventDefault(); go(FOUND[SEL]); }
+  });
+  l.addEventListener("click", e => { const a = e.target.closest(".res"); if (a) { e.preventDefault(); go(FOUND[+a.dataset.i]); } });
+  SEL = 0; draw(); i.focus();
+}
+function go(id) { BACK = null; closeVeil(); location.hash = href(D.nodes[id]); }
+function help() {
+  const k = (...ks) => ks.map(x => `<kbd>${esc(x)}</kbd>`).join(" "), or = ` ${esc(t("or"))} `;
+  const rows = [[k("/") + or + k("Ctrl", "K"), "Search, by name, IP, domain, kind or path"], [k("0") + " … " + k("5"), "The overview, then the five families"],
+    [k("t"), "Switch tiles and map"], [k("u") + or + k("⌫"), "Up one level"], [k("m"), "The modules"], [k("s"), "The settings"],
+    [k(t("Esc")), "Close the search, the details or this help"], [k("?"), "This help"], [k("+", "−", "←", "↑", "→", "↓", "0"), "On the map: zoom, move, show all"]];
+  veil(`<h2>${esc(t("Keyboard shortcuts"))}</h2><dl class="keys">${rows.map(([a, b]) => `<dt>${a}</dt><dd>${esc(t(b))}</dd>`).join("")}</dl>`, t("Keyboard shortcuts"));
+}
+function up() {
+  const parts = location.hash.slice(1).split("/").filter(Boolean);
+  location.hash = parts.length > 1 ? "#" + parts.slice(0, -1).join("/") : "#";
+}
+$("#find").addEventListener("click", palette);
+addEventListener("keydown", e => {
+  if ((e.ctrlKey || e.metaKey) && !e.altKey && e.key.toLowerCase() === "k") { e.preventDefault(); if (!closeVeil()) palette(); return; }
+  if (e.key === "Escape") { if (!closeVeil() && $(".sheet")) { SHEET = false; $(".sheet").remove(); } return; }
+  const typing = e.target.closest && e.target.closest("input, textarea, select, [contenteditable]");
+  if (typing || e.defaultPrevented || e.ctrlKey || e.metaKey || e.altKey || $(".veil") || !D) return;
+  if (e.key === "/") palette();
+  else if (e.key === "?") help();
+  else if (/^[0-5]$/.test(e.key)) location.hash = ["#", ...D.families.map(f => "#" + famSlug(f))][+e.key];
+  else if (e.key === "t" && location.hash !== "#modules") setMode(MODE === "map" ? "tiles" : "map");
+  else if (e.key === "u" || e.key === "Backspace") up();
+  else if (e.key === "m") location.hash = "#modules";
+  else if (e.key === "s") location.hash = "#settings";
+  else return;
+  e.preventDefault();
+});
+
+// theme: auto, light, dark, remembered per browser
+const THEMES = ["auto", "light", "dark"];
+function theme(next) {
+  let th = "auto";
+  try { th = localStorage.getItem("cairn-map-theme") || "auto"; } catch (e) {}
+  if (next) { th = THEMES[(THEMES.indexOf(th) + 1) % 3]; try { localStorage.setItem("cairn-map-theme", th); } catch (e) {} }
+  th === "auto" ? document.documentElement.removeAttribute("data-theme") : document.documentElement.setAttribute("data-theme", th);
+  $("#theme").textContent = t("Theme: " + th);
+}
+$("#theme").addEventListener("click", () => theme(true));
+addEventListener("hashchange", route);
+load().then(() => theme());
+setInterval(load, 60000);
+</script>

@@ -1,0 +1,27 @@
+{
+  "title": "Cairn Map",
+  "lang": "en",
+  "listen": "127.0.0.1:8095",
+  "modules": [
+    {"name": "cairn-iac", "type": "python", "module": "cairn_iac", "interval": 300,
+     "options": {"file": "iac-export.json", "cluster": "Lab", "upper_names": true, "edit_url": "https://iac.example/#{key}",
+                 "physical": {"site": "Lab", "places": {"Rack": ["pve1", "pve2", "core"]}, "kinds": {"nas": "nas"}}}},
+    {"name": "cairn-net", "type": "python", "module": "cairn_net", "interval": 60,
+     "options": {"file": "net-export.json", "edit_url": "https://net.example/#ports/{switch}",
+                 "uplink": {"name": "Internet", "via": "isp-box", "aliases": ["1.1.1.1"]},
+                 "physical": {"site": "Lab", "places": {"Rack": ["pve1", "pve2", "core"]}, "kinds": {"nas": "nas"}}}},
+    {"name": "notes", "type": "command", "command": ["python3", "-c", "import json; print(json.dumps({'status': [{'id': '10.0.10.22', 'level': 'warn', 'detail': 'backup is 3 days old'}]}))"], "interval": 60},
+    {"name": "proxmox", "type": "python", "module": "proxmox", "interval": 30,
+     "options": {"file": "pve-resources.json", "expect_stopped": []}},
+    {"name": "uptime-kuma", "type": "python", "module": "uptime_kuma", "interval": 120,
+     "options": {"file": "kuma-prometheus.json"}},
+    {"name": "prometheus", "type": "python", "module": "prometheus", "interval": 300,
+     "options": {"file": "prometheus.json", "backup": {"label": "vm_name", "warn_hours": 48},
+                 "grafana_url": "https://grafana.example/d/hosts?var-instance={name}"}},
+    {"name": "traefik", "type": "python", "module": "traefik", "interval": 120,
+     "options": {"file": "traefik.json", "name": "Proxy", "host": "web"}},
+    {"name": "cairn-nas", "type": "python", "module": "cairn_nas", "interval": 300, "timeout": 2,
+     "options": {"machines": [{"name": "nas", "file": "nas-slow.txt"}, {"name": "gone", "url": "http://127.0.0.1:9"}],
+                 "capacity_warn": 80, "skip": ["tank/scratch"]}}
+  ]
+}

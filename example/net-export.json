@@ -1,0 +1,26 @@
+{
+  "switches": [
+    {"name": "core", "vlan_ifaces": [{"name": "mgmt99", "vlan-id": "99", "interface": "bridge"}],
+     "addresses": [{"address": "10.0.10.1/24", "interface": "bridge", "disabled": "false"}, {"address": "10.0.99.1/24", "interface": "mgmt99", "disabled": "false"}],
+     "vlans": [{"vlan-ids": "10", "current-tagged": "", "current-untagged": "bridge,ether1,ether2"}, {"vlan-ids": "99", "current-tagged": "bridge,ether1", "current-untagged": ""}],
+     "ports": [{"interface": "ether1", "pvid": "10"}, {"interface": "ether2", "pvid": "10"}],
+     "ifaces": [{"name": "ether1", "running": "true"}, {"name": "ether2", "running": "true"}],
+     "resource": {"cpu-load": "4", "uptime": "3d2h"}, "health": [{"name": "cpu-temperature", "value": "48", "type": "C"}]},
+    {"name": "access", "vlan_ifaces": [], "addresses": [{"address": "10.0.99.2/24", "interface": "mgmt99", "disabled": "false"}],
+     "vlans": [{"vlan-ids": "10", "current-tagged": "", "current-untagged": "bridge,ether1,ether5"}, {"vlan-ids": "99", "current-tagged": "bridge,ether1", "current-untagged": "ether6"}],
+     "ports": [{"interface": "ether1", "pvid": "10"}, {"interface": "ether5", "pvid": "10"}, {"interface": "ether6", "pvid": "99"}],
+     "ifaces": [{"name": "ether1", "running": "true"}, {"name": "ether5", "running": "true"}, {"name": "ether6", "running": "false"}],
+     "resource": {"cpu-load": "2"}, "health": [{"name": "temperature", "value": "81", "type": "C"}]},
+    {"name": "lab", "error": "timeout"}
+  ],
+  "topology": {
+    "links": [{"a": "core", "a_via": "ether1", "b": "access", "b_via": "ether1", "pairs": [["ether1", "ether1"]], "lacp": false}],
+    "devices": [
+      {"mac": "BC:24:11:00:00:21", "sw": "core", "port": "ether2", "vids": ["10"], "ip": "10.0.10.21", "name": "web", "kind": "server"},
+      {"mac": "BC:24:11:00:00:22", "sw": "core", "port": "ether2", "vids": ["10"], "ip": "10.0.10.22", "name": "db", "kind": "server"},
+      {"mac": "00:11:22:33:44:55", "sw": "access", "port": "ether6", "vids": ["99"], "ip": "10.0.99.11", "name": "pve1", "kind": "server"},
+      {"mac": "00:11:22:33:44:66", "sw": "access", "port": "ether5", "vids": [], "ip": "10.0.10.50", "name": "printer", "kind": "unknown"},
+      {"mac": "00:11:22:33:44:01", "sw": "core", "port": "ether2", "vids": ["10"], "ip": "10.0.10.1", "name": "isp-box", "kind": "router"}
+    ]
+  }
+}

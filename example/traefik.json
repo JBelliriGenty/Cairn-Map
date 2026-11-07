@@ -1,0 +1,15 @@
+{
+  "routers": [
+    {"name": "web@file", "provider": "file", "entryPoints": ["websecure"], "rule": "Host(`web.example.org`) || Host(`www.example.org`)", "service": "web", "middlewares": ["auth@file"], "status": "enabled"},
+    {"name": "web-http@file", "provider": "file", "entryPoints": ["web"], "rule": "Host(`web.example.org`)", "service": "web", "middlewares": ["to-https@file"], "status": "enabled"},
+    {"name": "app@file", "provider": "file", "entryPoints": ["websecure"], "rule": "Host(`app.example.org`)", "service": "app", "middlewares": ["gone@file"], "status": "warning", "error": ["middleware \"gone@file\" does not exist"]},
+    {"name": "dashboard@docker", "provider": "docker", "entryPoints": ["websecure"], "rule": "Host(`proxy.example.org`)", "service": "api@internal", "status": "enabled"}
+  ],
+  "services": [
+    {"name": "web@file", "provider": "file", "type": "loadbalancer", "status": "enabled", "loadBalancer": {"servers": [{"url": "http://10.0.10.21:8080"}]}, "serverStatus": {"http://10.0.10.21:8080": "UP"}, "usedBy": ["web@file", "web-http@file"]},
+    {"name": "app@file", "provider": "file", "type": "loadbalancer", "status": "enabled", "loadBalancer": {"servers": [{"url": "http://10.0.10.30:3000"}]}, "serverStatus": {"http://10.0.10.30:3000": "DOWN"}, "usedBy": ["app@file"]},
+    {"name": "unused@file", "provider": "file", "type": "loadbalancer", "status": "enabled", "loadBalancer": {"servers": [{"url": "http://10.0.10.31"}]}},
+    {"name": "api@internal", "provider": "internal", "status": "enabled", "usedBy": ["dashboard@docker"]},
+    {"name": "noop@internal", "provider": "internal", "status": "enabled"}
+  ]
+}

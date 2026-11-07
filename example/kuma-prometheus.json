@@ -1,0 +1,11 @@
+{
+  "status": [
+    {"metric": {"monitor_name": "Web (public)", "monitor_type": "http", "monitor_url": "https://web.example.org", "monitor_hostname": "null"}, "value": [1700000000, "1"]},
+    {"metric": {"monitor_name": "pve1 (host)", "monitor_type": "ping", "monitor_url": "null", "monitor_hostname": "10.0.99.11"}, "value": [1700000000, "1"]},
+    {"metric": {"monitor_name": "Printer", "monitor_type": "ping", "monitor_url": "null", "monitor_hostname": "10.0.10.50"}, "value": [1700000000, "0"]},
+    {"metric": {"monitor_name": "DNS (resolution)", "monitor_type": "dns", "monitor_url": "null", "monitor_hostname": "web.example.org"}, "value": [1700000000, "1"]}
+  ],
+  "time": [{"metric": {"monitor_name": "Web (public)"}, "value": [1700000000, "42.5"]}, {"metric": {"monitor_name": "pve1 (host)"}, "value": [1700000000, "0.8"]}],
+  "day": [{"metric": {"monitor_name": "Web (public)"}, "value": [1700000000, "1"]}, {"metric": {"monitor_name": "Printer"}, "value": [1700000000, "0.75"]}],
+  "month": [{"metric": {"monitor_name": "Web (public)"}, "value": [1700000000, "0.9987"]}]
+}

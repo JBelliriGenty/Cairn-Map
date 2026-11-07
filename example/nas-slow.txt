@@ -1,0 +1,37 @@
+nas
+6.12.0-amd64
+@@
+tank	health	ONLINE	-
+tank	size	4000000000000	-
+tank	allocated	3400000000000	-
+tank	free	600000000000	-
+tank	fragmentation	3	-
+tank	capacity	85	-
+fast	health	DEGRADED	-
+fast	size	1000000000000	-
+fast	allocated	100000000000	-
+fast	capacity	10	-
+@@
+  pool: tank
+ state: ONLINE
+@@
+tank	3400000000000	600000000000	98304	1.00	lz4	131072	0	/tank	true	filesystem	-	-
+tank/data	3000000000000	600000000000	1000	1.02	lz4	131072	0	/tank/data	true	filesystem	-	-
+tank/data/photos	2000000000000	600000000000	2000000000000	1.00	lz4	1048576	2500000000000	/tank/data/photos	true	filesystem	-	-
+tank/vm	400000000000	600000000000	400000000000	1.00	lz4	-	0	-	-	volume	400000000000	16384
+tank/scratch	1000	600000000000	1000	1.00	lz4	131072	0	/tank/scratch	true	filesystem	-	-
+fast	100000000000	900000000000	98304	1.00	lz4	131072	0	/fast	true	filesystem	-	-
+@@
+tank@auto-1	0	1700000000
+@@
+nfs-server active
+@@
+/tank/data 10.0.10.21(rw,no_subtree_check) 10.0.10.22(ro)
+@@
+@@
+# Managed by cairn-nas (shares created from the page), do not edit by hand.
+
+[Photos]
+   path = /tank/data/photos
+   valid users = alice @family
+   write list = alice
