@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.3.3 (2026-11-08)
+
+- Map: the current or hovered element's name sits on an opaque pill, so it
+  reads even when it has to cross a dense cluster of points.
+
 ## 1.3.2 (2026-11-08)
 
 - Config: a key nothing reads, at the top of the config or in a module entry
