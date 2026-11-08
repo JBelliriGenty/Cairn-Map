@@ -754,7 +754,10 @@ function frame(now) {
     // [x, y, align] for each place, then its box; a name with its measures stays on the right, over its pills
     const spots = (ds ? [[xr, p[1], "left"]] : [[xr, p[1], "left"], [p[0] - r - 6, p[1], "right"], [p[0], p[1] + r + 4 + h / 2, "center"], [p[0], p[1] - r - 4 - h / 2, "center"]])
       .map(([x, y, al]) => { const l = al === "left" ? x : al === "right" ? x - w : x - w / 2; return [x, y, al, [l - 2, y - h / 2, l + w + 2, y + h / 2]]; });
-    const spot = spots.find(s => !hits(s[3])) || (must(id) ? spots[0] : null);
+    // a place cut by the edge of the map is not free either; a name that must show takes the place that
+    // covers the least (inside the map first)
+    const out = b => b[0] < 0 || b[2] > SW || b[1] < 0 || b[3] > SH, cost = b => (out(b) ? 1e3 : 0) + boxes.filter(o => b[0] < o[2] && b[2] > o[0] && b[1] < o[3] && b[3] > o[1]).length;
+    const spot = spots.find(s => !hits(s[3]) && !out(s[3])) || (must(id) ? spots.reduce((a, b) => cost(b[3]) < cost(a[3]) ? b : a) : null);
     if (!spot) continue;
     const [x0, y, al, box] = spot;
     boxes.push(box);

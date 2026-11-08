@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.3.1 (2026-11-08)
+
+- Map: a name is no longer cut by the edge of the map (a place outside it is
+  not free). The current element's name, always shown, takes the place that
+  covers the fewest other names and points, inside the map first. Checked on
+  a copy of a 275-element map, 375 to 1440 px wide: no name over another, none
+  cut by the edge at the family's view.
+
 ## 1.3.0 (2026-11-08)
 
 - Map: a name never covers another point either (it already never covered

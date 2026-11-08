@@ -76,6 +76,10 @@ Switching keeps the current element in place with an animated transition
 
 ## Config
 
+Every key of `config.json`, of each module's `options` and of the settings
+file, with defaults and recipes: **[docs/configuration.md](docs/configuration.md)**.
+The essentials:
+
 | Key | Default | |
 |---|---|---|
 | `title` | `Cairn Map` | page title |
@@ -163,6 +167,9 @@ dropped and counted.
   the map stays light.
 
 ### Shipped modules
+
+What each one shows. Their options, one table per module:
+[docs/configuration.md](docs/configuration.md#options-of-the-shipped-modules).
 
 **`cairn_iac`** — the Hypervisor family from
 [Cairn IaC](https://github.com/JBelliriGenty/Cairn-IaC): cluster → node (a

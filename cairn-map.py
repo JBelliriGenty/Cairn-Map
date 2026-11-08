@@ -26,7 +26,7 @@ import urllib.request
 from concurrent.futures import ThreadPoolExecutor
 
 HERE = pathlib.Path(__file__).resolve().parent
-VERSION = "1.3.0"
+VERSION = "1.3.1"
 
 # The families the page knows, in display order; a module can only fill these.
 FAMILIES = ["physical", "network", "hypervisor", "services", "storage"]
