@@ -209,7 +209,7 @@ Written by the Settings page (`#settings`), atomically, when
 | Key | |
 |---|---|
 | `places` | once saved, **replaces** the modules' `places` |
-| `kinds` | wins over the modules' `kinds` |
+| `kinds` | wins over the modules' `kinds`; machine name → `node`, `server`, `nas`, `router`, `switch`, `ap` or `pc` |
 | `disabled` | module names no longer read |
 
 You can edit it by hand: stop Cairn Map, edit, start it again. To go back

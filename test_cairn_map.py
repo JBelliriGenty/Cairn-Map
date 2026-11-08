@@ -221,6 +221,6 @@ assert "const boxes = drawn.map(" in html and "b[2] > SW" in html and "id === FO
 
 # every key the code reads is in the configuration reference
 doc = (HERE / "docs/configuration.md").read_text(encoding="utf-8")
-missing = [k for k in [*cm.DEFAULTS, *cm.MODULE_KEYS] if f"`{k}`" not in doc]
+missing = [k for k in [*cm.DEFAULTS, *cm.MODULE_KEYS, *cm.SETTINGS_KEYS, *cm.GROUPS] if f"`{k}`" not in doc]
 assert not missing, missing
 print("ok")

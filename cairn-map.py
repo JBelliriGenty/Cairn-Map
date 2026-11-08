@@ -152,11 +152,14 @@ def apply_settings(nodes, st):
     return {i: x for i, x in nodes.items() if not (x["family"] == "physical" and x["kind"] == "group" and i not in used)}
 
 
+SETTINGS_KEYS = ("places", "kinds", "disabled")
+
+
 def check_settings(st, modules):
     """A settings body as the page sends it, or ValueError: {places: {place: [machine]}, kinds: {machine:
     kind}, disabled: [module name]}, names up to 64 characters."""
     name = lambda v: isinstance(v, str) and 0 < len(v.strip()) <= 64
-    if not isinstance(st, dict) or set(st) - {"places", "kinds", "disabled"}:
+    if not isinstance(st, dict) or set(st) - set(SETTINGS_KEYS):
         raise ValueError("expected {places, kinds, disabled}")
     places, kinds, off = st.get("places") or {}, st.get("kinds") or {}, st.get("disabled") or []
     if not (isinstance(places, dict) and len(places) <= 100 and all(name(k) and isinstance(v, list) and len(v) <= 500 and all(map(name, v))
