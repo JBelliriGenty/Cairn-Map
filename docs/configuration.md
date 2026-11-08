@@ -39,8 +39,10 @@ program at once.
 | `modules` | list | `[]` | see [Modules](#modules) |
 | `settings_file` | path | `""` | the Settings page's file, created on the first save in a writable folder. Empty: the Settings page is read only |
 
-Unknown keys are ignored, so a typo does not stop the map: it just has no
-effect. If a setting seems ignored, check its spelling first.
+A key nothing reads (a typo such as `listn`), here or in a module entry, is
+reported at start on standard error with the closest known key ("did you
+mean 'listen'?"), and otherwise ignored: the map still starts. Keys inside
+a module's `options` are not checked, so spell those carefully.
 
 ## Modules
 

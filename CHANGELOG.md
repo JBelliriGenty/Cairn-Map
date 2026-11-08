@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.3.2 (2026-11-08)
+
+- Config: a key nothing reads, at the top of the config or in a module entry
+  (a typo such as `intervall`), is reported at start on standard error, with
+  the closest known key ("did you mean 'interval'?"). The map still starts.
+  Module options are not checked: each module reads its own.
+- Configuration reference: `docs/configuration.md`, every key with its
+  default, the settings file, the module format and recipes.
+
 ## 1.3.1 (2026-11-08)
 
 - Map: a name is no longer cut by the edge of the map (a place outside it is

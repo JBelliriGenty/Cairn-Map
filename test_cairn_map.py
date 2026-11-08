@@ -57,6 +57,10 @@ assert roots["storage"] == [] and "path" not in nodes["c1"]
 
 # the example config: both shipped modules and a command module
 cfg = cm.load_config(HERE / "example" / "config.json")
+assert cm.unknown_keys(json.loads((HERE / "example" / "config.json").read_text(encoding="utf-8"))) == []
+assert cm.unknown_keys({"listn": "x", "modules": [{"name": "a", "intervall": 5, "zzz": 1}]}) == [
+    "unknown key 'listn', did you mean 'listen'?",
+    "unknown key in module 'a': 'intervall', did you mean 'interval'?", "unknown key in module 'a': 'zzz'"]
 cfg["modules"][2]["command"][0] = sys.executable
 m = cm.App(cfg, HERE / "example").map()
 N = m["nodes"]

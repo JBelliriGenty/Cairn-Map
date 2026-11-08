@@ -7,6 +7,7 @@ Python standard library only.
 """
 import argparse
 import base64
+import difflib
 import hmac
 import http.server
 import importlib.util
@@ -26,7 +27,7 @@ import urllib.request
 from concurrent.futures import ThreadPoolExecutor
 
 HERE = pathlib.Path(__file__).resolve().parent
-VERSION = "1.3.1"
+VERSION = "1.3.2"
 
 # The families the page knows, in display order; a module can only fill these.
 FAMILIES = ["physical", "network", "hypervisor", "services", "storage"]
@@ -540,12 +541,32 @@ def serve(cfg, base):
     srv.serve_forever()
 
 
+MODULE_KEYS = {"name", "type", "module", "file", "options", "url", "token_file", "ca_file", "auth", "command",
+               "interval", "timeout", "enabled"}
+
+
+def unknown_keys(cfg):
+    """Keys of the config and of its module entries that nothing reads (a typo would else go unnoticed),
+    with the closest known key. Module options are not checked: each module reads its own."""
+    def check(d, known, where):
+        for k in d:
+            if k not in known:
+                close = difflib.get_close_matches(k, known, 1)
+                yield f"unknown key {where}{k!r}" + (f", did you mean {close[0]!r}?" if close else "")
+    out = list(check(cfg, DEFAULTS, ""))
+    for m in cfg.get("modules", []):
+        out += check(m, MODULE_KEYS, f"in module {m.get('name')!r}: ")
+    return out
+
+
 def load_config(path):
     raw = json.loads(path.read_text(encoding="utf-8")) if path else {}
     cfg = {**DEFAULTS, **raw}
     names = [m.get("name") for m in cfg["modules"]]
     if any(not n for n in names) or len(set(names)) != len(names):
         sys.exit("cairn-map: every module needs a unique name")
+    for w in unknown_keys(raw):
+        print(f"cairn-map: {w}", file=sys.stderr)
     return cfg
 
 
