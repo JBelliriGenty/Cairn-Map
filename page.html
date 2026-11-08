@@ -284,7 +284,7 @@ const EN = { physical: "Physical", network: "Network", hypervisor: "Hypervisor",
   switches: "Switches", vlans: "VLANs", vlan: "VLAN", interface: "Interface", subnet: "Subnet", gateway: "Gateway", devices: "Devices", ports: "Ports",
   to: "To", switch: "Switch", power: "Power", uptime: "Up since", model: "Model", servers: "Servers", health: "Health", capacity: "Capacity",
   fragmentation: "Fragmentation", pools: "Pools", datasets: "Datasets", dataset: "Dataset", middlewares: "Middlewares",
-  internet: "Internet", via: "Through", location: "Location", smb: "SMB share", smb_users: "SMB users" };
+  internet: "Internet", via: "Through", location: "Location", smb: "SMB share", smb_users: "SMB users", vm: "VM", lxc: "LXC" };
 // the modules write their state details in English; parts between " · " are translated here, {x} keeps a value
 const FRD = {
   "link up": "lien actif", "link down": "lien coupé", "disabled": "désactivé", "unreachable: {e}": "injoignable : {e}", "seen on {p}": "vu sur {p}",
@@ -744,7 +744,8 @@ function frame(now) {
   const font = d => (d <= 1 ? "600 15px " : d === 2 ? "600 13px " : "12px ") + "system-ui, -apple-system, 'Segoe UI', sans-serif";
   const must = id => id === HOVER || id === FOCUS || (near && near.has(id));
   const rank = id => (must(id) ? 0 : 1e4) + N[id].d * 100 + ({ down: 0, warn: 1 }[N[id].lv] ?? 2);
-  const boxes = [], hits = b => boxes.some(o => b[0] < o[2] && b[2] > o[0] && b[1] < o[3] && b[3] > o[1]);
+  // the points are taken first: a name never covers another point either
+  const boxes = drawn.map(([, p, r]) => [p[0] - r, p[1] - r, p[0] + r, p[1] + r]), hits = b => boxes.some(o => b[0] < o[2] && b[2] > o[0] && b[1] < o[3] && b[3] > o[1]);
   const names = drawn.filter(([id]) => must(id) || (VIS[id] > .95 && N[id].d <= Math.floor(want + .2))).sort((a, b) => rank(a[0]) - rank(b[0]));
   for (const [id, p, r, ds] of names) {
     const d = N[id].d, name = N[id].name;

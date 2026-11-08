@@ -208,4 +208,10 @@ for mod in ("cairn_net", "proxmox", "prometheus", "traefik", "cairn_nas"):  # ev
     src = (HERE / "modules" / f"{mod}.py").read_text(encoding="utf-8")
     for w in re.findall(r'"(link up|link down|disabled|seen on \{p\}|port \{p\} is down|hot|busy|running|offline|stopped(?: \(expected\))?|server up|server down)"', src):
         assert w in frd, (mod, w)
+# lot 7: in English every family and the guest kinds have their own spelling (not the lowercase key),
+# and the names on the map make room for the points as well as for each other
+en = dict(re.findall(r'(\w+): "([^"]*)"', html[html.index("const EN = {"):html.index("const FRD = {")]))
+for k in list(m["families"]) + ["vm", "lxc"]:
+    assert en.get(k, k) != k.lower() and en[k][0].isupper(), k
+assert "const boxes = drawn.map(" in html
 print("ok")

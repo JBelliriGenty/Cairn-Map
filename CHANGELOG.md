@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.3.0 (2026-11-08)
+
+- Map: a name never covers another point either (it already never covered
+  another name). It tries right, left, below, above its point, else waits for
+  the hover or a closer zoom; checked on the example from 320 to 1440 px wide.
+- English: the guest kinds read `VM` and `LXC` (they read `vm` and `lxc`).
+
 ## 1.2.2 (2026-11-08)
 
 - Docker image published on each release: `ghcr.io/jbellirigenty/cairn-map`
