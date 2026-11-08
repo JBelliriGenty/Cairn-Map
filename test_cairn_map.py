@@ -218,4 +218,9 @@ en = dict(re.findall(r'(\w+): "([^"]*)"', html[html.index("const EN = {"):html.i
 for k in list(m["families"]) + ["vm", "lxc"]:
     assert en.get(k, k) != k.lower() and en[k][0].isupper(), k
 assert "const boxes = drawn.map(" in html and "b[2] > SW" in html and "id === FOCUS || id === HOVER) {  // the current or hovered name on an opaque pill" in html  # nor are they cut by the edge
+
+# every key the code reads is in the configuration reference
+doc = (HERE / "docs/configuration.md").read_text(encoding="utf-8")
+missing = [k for k in [*cm.DEFAULTS, *cm.MODULE_KEYS] if f"`{k}`" not in doc]
+assert not missing, missing
 print("ok")
