@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.2.2 (2026-11-08)
+
+- Docker image published on each release: `ghcr.io/jbellirigenty/cairn-map`
+  (Alpine, amd64 and arm64, runs as `nobody`), tags `1.2.2`, `1.2`, `1`, `latest`.
+- GitHub releases created from the tag, with their CHANGELOG notes.
+
 ## 1.2.1 (2026-11-08)
 
 - Its own icon (sky blue, the cairn with three linked points of the map):

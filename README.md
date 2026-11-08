@@ -32,8 +32,15 @@ python3 cairn-map.py -c example/config.json --json   # the merged map, once
 python3 test_cairn_map.py                        # self-check, prints "ok"
 ```
 
-Docker: `docker build -t cairn-map .` then mount your config at
-`/etc/cairn-map/config.json` (and the files it names).
+Docker: an image is published for each release (Alpine, amd64 and arm64,
+runs as `nobody`). Mount the folder holding your config (with
+`"listen": "0.0.0.0:8095"`) and the files it names at `/etc/cairn-map`:
+
+```sh
+docker run -d -p 8095:8095 -v $PWD/config:/etc/cairn-map:ro ghcr.io/jbellirigenty/cairn-map:1
+```
+
+Or build it from the included `Dockerfile`: `docker build -t cairn-map .`
 
 ## Two views
 
