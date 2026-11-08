@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.2.1 (2026-11-08)
+
+- Its own icon (sky blue, the cairn with three linked points of the map):
+  `icon.svg`, and the 64 px PNG in the page (tab, `/favicon.ico`, sidebar).
+
 ## 1.2.0 (2026-11-08)
 
 - **Settings page** (`#settings`, key `s`): each machine's room or rack and
