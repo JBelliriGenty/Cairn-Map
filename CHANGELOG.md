@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.6.0 (2026-11-10)
+
+- Prometheus module, option `macs`: each machine's network MACs (by default
+  node_exporter's `node_network_info`) become aliases, so the physical
+  hosts' cards join them as the guests' do through the Proxmox module.
+
 ## 1.5.0 (2026-11-10)
 
 - Proxmox module, option `macs`: each guest's network MACs (from its config,

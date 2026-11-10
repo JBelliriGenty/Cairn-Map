@@ -11,12 +11,15 @@ the range query>}, "backup": <result of the instant query>}); token_file, ca_fil
 (seconds, default 86400), step (default 900); series ([{title, unit, query, max, line}], default:
 node_exporter's CPU, memory, disk /, network); backup ({query, label, warn_hours}: a query giving the
 unix time of each element's last backup, the label naming the element; older than warn_hours = warn);
-grafana_url (a link per element, {name} = its label value); skip (label values left out).
+grafana_url (a link per element, {name} = its label value); skip (label values left out); macs (true, or
+{query, label}: each element's network MACs as aliases, default node_exporter's node_network_info and its label
+"address", so the device the switches see under that MAC joins the machine; in a saved copy, "macs": the result).
 """
 import re
 import time
 import urllib.parse
 
+MACS = 'node_network_info{address!="",$sel}'
 NODE = [
     {"title": "CPU", "unit": "%", "max": 100,
      "query": '100 * (1 - avg by ($by) (rate(node_cpu_seconds_total{mode="idle",$sel}[5m])))'},
@@ -37,7 +40,7 @@ def fetch(opt, ctx):
     q = lambda s: s.replace("$sel", sel).replace("$by", by)
     if opt.get("file"):
         d = ctx.get_json(file=opt["file"])
-        end, res, last = float(d["end"]), d.get("series") or {}, d.get("backup") or []
+        end, res, last, macs = float(d["end"]), d.get("series") or {}, d.get("backup") or [], d.get("macs") or []
     else:
         end = (time.time() // step) * step
         base = opt["prometheus"].rstrip("/") + "/api/v1/"
@@ -45,6 +48,8 @@ def fetch(opt, ctx):
         res = {s["title"]: get("query_range?" + urllib.parse.urlencode({"query": q(s["query"]), "start": end - span, "end": end, "step": step}))
                for s in series}
         last = get("query?" + urllib.parse.urlencode({"query": q(backup["query"])})) if backup.get("query") else []
+        mq = opt.get("macs")
+        macs = get("query?" + urllib.parse.urlencode({"query": q(mq.get("query", MACS) if isinstance(mq, dict) else MACS)})) if mq else []
     skip, n = {x.lower() for x in opt.get("skip", [])}, span // step + 1
     panels, status, seen = [], [], {}
     for s in series:
@@ -82,7 +87,14 @@ def fetch(opt, ctx):
         for name in seen:
             panels.append({"id": name, "aliases": hooks(name), "type": "link", "title": "Grafana",
                            "url": opt["grafana_url"].replace("{name}", urllib.parse.quote(name))})
-    return {"panels": panels, "status": status}
+    mlab = (opt.get("macs") or {}).get("label", "address") if isinstance(opt.get("macs"), dict) else "address"
+    by_host = {}
+    for r in macs:
+        name, mac = r["metric"].get(by), r["metric"].get(mlab, "").upper()
+        if name and name.lower() not in skip and re.fullmatch(r"([0-9A-F]{2}:){5}[0-9A-F]{2}", mac) and mac != "00:00:00:00:00:00":
+            by_host.setdefault(name, []).append(mac)
+    nodes = [{"id": name, "aliases": hooks(name) + sorted(set(ms))} for name, ms in by_host.items()]
+    return {"nodes": nodes, "panels": panels, "status": status}
 
 
 def hooks(v):

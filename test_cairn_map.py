@@ -55,6 +55,16 @@ rows = [{"type": "qemu", "vmid": 129, "node": "pve1", "name": "moli", "status": 
 got = pmx.guest_macs({"url": ["https://pve1:8006/api2/json/cluster/resources"], "macs": True}, FakeCtx(), rows)
 assert got == {("qemu", 129): ["BC:24:11:2D:42:7F", "BC:24:11:00:00:02"]}, got
 
+# prometheus: a machine's NIC MACs (node_network_info) as aliases of the machine, zero and odd values left out
+_s = _u.spec_from_file_location("prom", HERE / "modules" / "prometheus.py"); prom = _u.module_from_spec(_s); _s.loader.exec_module(prom)
+class FileCtx:
+    def get_json(self, file="", **k):
+        return {"end": 1700006400, "macs": [{"metric": {"host_name": "PVE1", "address": "58:47:ca:76:8d:1b"}},
+                                            {"metric": {"host_name": "PVE1", "address": "00:00:00:00:00:00"}},
+                                            {"metric": {"host_name": "PVE1", "address": "fe80::1"}}]}
+out = prom.fetch({"file": "x", "by": "host_name", "macs": True, "series": []}, FileCtx())
+assert out["nodes"] == [{"id": "PVE1", "aliases": ["pve1", "58:47:CA:76:8D:1B"]}], out["nodes"]
+
 # tree: children, unique slugs among siblings, a lone root is the family page, the worst level rolls up,
 # an unknown parent makes a root, a parent cycle does not loop
 nodes, roots = tree({
@@ -245,4 +255,7 @@ assert "const boxes = drawn.map(" in html and "b[2] > SW" in html and "id === FO
 doc = (HERE / "docs/configuration.md").read_text(encoding="utf-8")
 missing = [k for k in [*cm.DEFAULTS, *cm.MODULE_KEYS, *cm.SETTINGS_KEYS, *cm.GROUPS] if f"`{k}`" not in doc]
 assert not missing, missing
+# the version the page and /api/map show is the latest CHANGELOG entry
+import re as _re
+assert cm.VERSION == _re.search(r"^## (\S+)", (HERE / "CHANGELOG.md").read_text(encoding="utf-8"), _re.M).group(1), cm.VERSION
 print("ok")

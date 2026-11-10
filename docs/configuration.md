@@ -166,6 +166,7 @@ A read-only token is enough (`PVEAuditor`), see the README.
 | `series` | node_exporter CPU, memory, disk `/`, network | `[{"title", "unit", "max", "query", "line"}]`; `$by` and `$sel` are replaced; `line` names the label that splits a series into lines |
 | `backup` | | `{"query", "label", "warn_hours"}`: the last backup as a unix time per element; `label` defaults to `by`; no `warn_hours` = shown, never warn |
 | `grafana_url` | | a link per element, `{name}` = its label value |
+| `macs` | | `true` or `{query, label}`: each element's network MACs as aliases (default `node_network_info` and its label `address`), so the device the switches see joins the machine |
 | `skip` | `[]` | label values left out |
 
 Giving `series` replaces the four defaults: list every curve you want.
