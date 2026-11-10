@@ -31,14 +31,14 @@ def fetch(opt, ctx):
         if m.get("phys") and hasattr(ctx, "physical"):
             nodes += ctx.physical(opt.get("physical"), up(m["name"]), "node" if m["key"] in hosts else "server",
                                   [m["key"], m["name"], m.get("host"), m.get("ip")],
-                                  {a: v for a, v in {"ip": m.get("ip"), "groups": m.get("groups"), "roles": m.get("roles")}.items() if v})
+                                  {a: v for a, v in {"ip": m.get("ip"), "description": m.get("description"), "groups": m.get("groups"), "roles": m.get("roles")}.items() if v})
     for m in machines:
         k = m["key"]
         is_host = k in hosts
         if not is_host and m.get("node") not in hosts:
             continue  # bare metal that runs no guest: the Physical family's business, not this one
         t = m.get("tofu") or {}
-        attrs = {"ip": m.get("ip") or "", "roles": m.get("roles") or [], "groups": m.get("groups") or []}
+        attrs = {"ip": m.get("ip") or "", "description": m.get("description") or "", "roles": m.get("roles") or [], "groups": m.get("groups") or []}
         if is_host:
             c = cap.get(k) or {}
             attrs.update({"guests": c.get("guests", 0), "vcpu": c.get("cores", 0), "memory_mib": c.get("memory", 0), "disk_gb": c.get("disk", 0)})

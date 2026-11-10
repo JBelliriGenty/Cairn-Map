@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.4.0 (2026-11-10)
+
+- Cairn IaC module: a machine's description (Cairn IaC 1.7.0: its Tofu
+  `description` or inventory `description` host variable) becomes the
+  attribute `description`, shown at the top of its sheet and searched by
+  the palette.
+
 ## 1.3.3 (2026-11-08)
 
 - Map: the current or hovered element's name sits on an opaque pill, so it

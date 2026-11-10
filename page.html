@@ -130,6 +130,7 @@ a.family:hover { border-color: var(--control); border-top-color: var(--c); }
 
 /* an element: its facts, the same element elsewhere, its panels */
 .about { display: flex; flex-direction: column; gap: 12px; margin: 12px 0 8px; }
+.about .desc { margin: 0; }
 .chips { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
 .chip { display: inline-flex; align-items: center; gap: 6px; padding: 3px 10px; border-radius: 99px; border: 1px solid var(--line); background: var(--track); color: inherit; text-decoration: none; font-size: 13px; }
 a.chip:hover { border-color: var(--control); }
@@ -335,7 +336,7 @@ function fmt(k, v) {
 }
 // "used / total" when a total is known (vcpu + vcpu_total)
 function facts(x) {
-  return Object.entries(x.attrs).filter(([k, v]) => k !== "order" && !k.endsWith("_total") && v !== "" && v !== null && !(Array.isArray(v) && !v.length))
+  return Object.entries(x.attrs).filter(([k, v]) => k !== "order" && k !== "description" && !k.endsWith("_total") && v !== "" && v !== null && !(Array.isArray(v) && !v.length))
     .map(([k, v]) => [k, fmt(k, v) + (x.attrs[k + "_total"] ? " / " + fmt(k, x.attrs[k + "_total"]) : "")]);
 }
 const SHORT = ["ip", "subnet", "to", "hosts", "devices", "guests", "vcpu", "memory_mib", "capacity", "used_b"];
@@ -426,7 +427,7 @@ function about(x) {
   const tables = Object.values(groups).map(p => `<div><h2>${esc(t(p.title || ""))}</h2><table>${p.columns ? `<tr>${p.columns.map(c => `<th>${esc(t(c))}</th>`).join("")}</tr>` : ""}${p.rows.map(r => `<tr>${[].concat(r).map(c => `<td>${esc(trd(c))}</td>`).join("")}</tr>`).join("")}</table></div>`).join("");
   const st = [...x.status].sort((a, b) => LV.indexOf(b.level) - LV.indexOf(a.level));
   const status = st.length ? `<div><span class="label">${esc(t("State now"))}</span><ul class="states">${st.map(s => `<li><span class="dot ${s.level}" title="${esc(t(s.level))}"></span><span>${esc(trd(s.detail) || t(s.level))}</span></li>`).join("")}</ul></div>` : "";
-  return `<div class="about">${rows ? `<table>${rows}</table>` : ""}${status}${charts}${values ? `<div class="stats">${values}</div>` : ""}
+  return `<div class="about">${x.attrs.description ? `<p class="desc">${esc(x.attrs.description)}</p>` : ""}${rows ? `<table>${rows}</table>` : ""}${status}${charts}${values ? `<div class="stats">${values}</div>` : ""}
     ${also ? `<div class="chips"><span class="label">${esc(t("Also in"))}</span>${also}</div>` : ""}${links ? `<div class="chips">${links}</div>` : ""}${tables}
     <p class="sub">${esc(t("Sources"))} : ${[...new Set([...x.sources, ...x.status.map(s => s.source), ...x.panels.map(p => p.source)])].map(esc).join(", ")}</p></div>`;
 }
@@ -1034,7 +1035,7 @@ function search(q) {
   const words = norm(q).trim().split(/\s+/).filter(Boolean), q0 = words.join(" ");
   if (!words.length) return [];
   return Object.entries(D.nodes).filter(([, x]) => x.path).map(([id, x]) => {
-    const n = norm(x.name), hay = norm([x.name, x.attrs.ip, ...x.aliases, t(x.kind), t(x.family), x.path.join(" ")].join(" "));
+    const n = norm(x.name), hay = norm([x.name, x.attrs.ip, x.attrs.description, ...x.aliases, t(x.kind), t(x.family), x.path.join(" ")].join(" "));
     if (!words.every(w => hay.includes(w))) return null;
     return [n === q0 ? 0 : n.startsWith(q0) ? 1 : n.includes(q0) ? 2 : 3, x.path.length, id];
   }).filter(Boolean).sort((a, b) => a[0] - b[0] || a[1] - b[1] || byName(D.nodes[a[2]].name, D.nodes[b[2]].name)).slice(0, 40).map(r => r[2]);

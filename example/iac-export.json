@@ -3,8 +3,8 @@
   "machines": [
     {"key": "pve1", "name": "pve1", "host": "pve1", "node": null, "id": null, "ip": "10.0.99.11", "tofu": null, "phys": true, "groups": ["proxmox"], "roles": [], "playbooks": []},
     {"key": "pve2", "name": "pve2", "host": "pve2", "node": null, "id": null, "ip": "10.0.99.12", "tofu": null, "phys": true, "groups": ["proxmox"], "roles": [], "playbooks": []},
-    {"key": "nas", "name": "nas", "host": "nas", "node": null, "id": null, "ip": "10.0.10.40", "tofu": null, "phys": true, "groups": [], "roles": [], "playbooks": []},
-    {"key": "web", "name": "WEB", "host": "web", "node": "pve1", "id": 101, "ip": "10.0.10.21",
+    {"key": "nas", "name": "nas", "host": "nas", "node": null, "id": null, "ip": "10.0.10.40", "description": "File server", "tofu": null, "phys": true, "groups": [], "roles": [], "playbooks": []},
+    {"key": "web", "name": "WEB", "host": "web", "node": "pve1", "id": 101, "ip": "10.0.10.21", "description": "Web front",
      "tofu": {"kind": "LXC", "address": "module.web", "cores": "2", "memory": "2048", "disk": "8", "file": "tofu/main.tf", "line": 1},
      "phys": false, "groups": ["lxc"], "roles": ["base", "web"], "playbooks": ["site"]},
     {"key": "db", "name": "DB", "host": "db", "node": "pve2", "id": 201, "ip": "10.0.10.22",

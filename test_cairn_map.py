@@ -70,6 +70,8 @@ assert hv["Lab"]["path"] == [] and hv["WEB"]["path"] == ["pve1", "web"] and hv["
 assert "NAS" not in hv  # bare metal without guests: not the hypervisor's
 assert hv["PVE1"]["attrs"]["vcpu_total"] == 16 and hv["DB"]["level"] == "warn" and hv["PVE2"]["rollup"] == "warn"
 assert hv["WEB"]["panels"][0]["url"] == "https://iac.example/#web"
+assert hv["WEB"]["attrs"]["description"] == "Web front" and "description" not in hv["DB"]["attrs"]
+assert next(x for x in N.values() if x["family"] == "physical" and x["name"] == "NAS")["attrs"]["description"] == "File server"
 by_path = {"/".join(x["path"]): x for x in N.values() if x["family"] == "network"}
 assert by_path["vlan10/core/ether2/web"]["kind"] == "server"
 assert by_path["vlan10/core/ether1"]["kind"] == "link" and by_path["vlan10/core/ether1"]["attrs"]["to"] == "access"
