@@ -149,7 +149,7 @@ def fetch(opt, ctx):
                                         "link": "" if up is None else ("up" if up else "down"), "devices": used.get((vid, s["name"], p), 0)}})
     for vid, dv in devices:
         mac = dv.get("mac", "")
-        name = dv.get("name") or mac
+        name = dv.get("name") or ""  # unnamed: the core gives it the name of the same machine elsewhere (by MAC), else the MAC
         did = f"{rid}:vlan{vid}:{dv['sw'].lower()}:{dv['port']}:{mac}"
         up = running.get((dv["sw"], dv["port"]))
         if up is not None:  # in the switch's MAC table: seen lately, as long as its port runs

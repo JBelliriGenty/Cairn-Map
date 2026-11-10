@@ -261,7 +261,9 @@ Options: `url` (one URL or a list tried in order: one per node, so a node
 down does not blind the module), `token_id` (`map@pve!map`), `token_file`
 (the secret), `ca_file`, `expect_stopped` (guests stopped on purpose: ok
 instead of warn), `cpu_warn`, `mem_warn` (0–1, default 0.9; memory for nodes
-only), or `file` (a saved copy of that URL).
+only), `macs` (true: each guest's network MACs, read from its config every
+`macs_every` seconds, 600 by default, link the device the switches see to the
+guest and name it when Cairn Net cannot), or `file` (a saved copy of that URL).
 
 **`uptime_kuma`** — [Uptime Kuma](https://github.com/louislam/uptime-kuma)
 monitors: state, uptime over 24 h and 30 days, response time, read from the

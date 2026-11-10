@@ -35,6 +35,26 @@ assert a["name"] == "A" and a["kind"] == "lxc" and a["attrs"] == {"ip": "10.0.0.
 assert a["sources"] == ["m0", "m1", "m2"] and a["level"] == "down" and len(a["panels"]) == 1
 assert "10.0.0.1" not in nodes
 
+# a guest's MAC (brought by a node without a family, as the proxmox module does) names the unnamed device the switches see
+nodes, roots = tree(
+    {"nodes": [{"id": "host:moli", "family": "hypervisor", "name": "MOLI", "aliases": ["moli"]}]},
+    {"nodes": [{"id": "dev1", "family": "network", "name": "", "aliases": ["BC:24:11:2D:42:7F"], "attrs": {"mac": "BC:24:11:2D:42:7F"}},
+               {"id": "dev2", "family": "network", "name": "", "aliases": ["AA:BB:CC:00:00:01"], "attrs": {"mac": "AA:BB:CC:00:00:01"}}]},
+    {"nodes": [{"id": "host:moli", "aliases": ["moli", "vmid:129", "BC:24:11:2D:42:7F"]}]})
+assert nodes["dev1"]["name"] == "MOLI" and nodes["dev2"]["name"] == "AA:BB:CC:00:00:01", (nodes["dev1"]["name"], nodes["dev2"]["name"])
+assert "host:moli" in nodes["dev1"]["also"]
+
+# proxmox: guest MACs from each guest's config (net0, net1), on the URL list's bases
+import importlib.util as _u
+_s = _u.spec_from_file_location("pmx", HERE / "modules" / "proxmox.py"); pmx = _u.module_from_spec(_s); _s.loader.exec_module(pmx)
+class FakeCtx:
+    def get_json(self, url="", **k):
+        assert url == ["https://pve1:8006/api2/json/nodes/pve1/qemu/129/config"], url
+        return {"data": {"net0": "virtio=bc:24:11:2d:42:7f,bridge=vmbr0", "net1": "virtio=BC:24:11:00:00:02,bridge=vmbr0,tag=20", "name": "moli"}}
+rows = [{"type": "qemu", "vmid": 129, "node": "pve1", "name": "moli", "status": "running"}, {"type": "node", "node": "pve1", "status": "online"}]
+got = pmx.guest_macs({"url": ["https://pve1:8006/api2/json/cluster/resources"], "macs": True}, FakeCtx(), rows)
+assert got == {("qemu", 129): ["BC:24:11:2D:42:7F", "BC:24:11:00:00:02"]}, got
+
 # tree: children, unique slugs among siblings, a lone root is the family page, the worst level rolls up,
 # an unknown parent makes a root, a parent cycle does not loop
 nodes, roots = tree({

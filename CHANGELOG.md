@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.5.0 (2026-11-10)
+
+- Proxmox module, option `macs`: each guest's network MACs (from its config,
+  re-read every `macs_every` seconds) become aliases. The device the switches
+  see under that MAC is linked to the guest and, when Cairn Net has no name
+  for it, takes the guest's name instead of its MAC.
+- An alias brought by a module without elements of its own now links
+  elements across families, like the others.
+
 ## 1.4.0 (2026-11-10)
 
 - Cairn IaC module: a machine's description (Cairn IaC 1.7.0: its Tofu

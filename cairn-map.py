@@ -294,6 +294,9 @@ def merge(results):
     for n in extra:
         for i in resolve(n):
             x = nodes[i]
+            for k in n["aliases"]:  # an alias it brings (a guest's MAC) links the element to others that carry it
+                if k not in x["aliases"]:
+                    index.setdefault(k, []).append(i)
             x["aliases"] = list(dict.fromkeys(x["aliases"] + n["aliases"]))
             for k, v in n["attrs"].items():
                 x["attrs"].setdefault(k, v)
@@ -322,7 +325,8 @@ def build(nodes, index):
     for i, x in nodes.items():
         if not x["name"]:
             same = [nodes[j] for k in x["aliases"] for j in index.get(k, []) if j != i and nodes[j]["name"] and nodes[j]["family"] != x["family"]]
-            x["name"] = min(same, key=lambda y: depth(nodes, y))["name"] if same else (x["aliases"] or [""])[0]
+            x["name"] = (min(same, key=lambda y: depth(nodes, y))["name"] if same
+                         else x["attrs"].get("mac") or (x["aliases"] or [""])[0])
     kids = {i: [] for i in nodes}
     roots = {f: [] for f in FAMILIES}
     for i, x in nodes.items():

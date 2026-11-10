@@ -114,6 +114,8 @@ Most modules read a live source (`url` or `prometheus`) or a saved copy
 | `token_file` | | the token's secret |
 | `ca_file` | | |
 | `expect_stopped` | `[]` | guests stopped on purpose: ok instead of warn |
+| `macs` | `false` | read each guest's config for its network MACs: the device the switches see under one joins the guest (Also in) and, unnamed, takes its name |
+| `macs_every` | `600` | seconds between two reads of the guests' configs |
 | `cpu_warn` | `0.9` | 0 to 1 |
 | `mem_warn` | `0.9` | 0 to 1, nodes only |
 
