@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.6.2 (2026-11-20)
+
+- When the sign-in proxy's session has ended (401, or a POST sent to its
+  portal), the page reloads to sign in again instead of showing the
+  browser's error ("Load failed"); a settings save says nothing was saved.
+
 ## 1.6.1 (2026-11-20)
 
 - Cairn Net module: a switch with Wi-Fi interfaces (the export's `wifi`)

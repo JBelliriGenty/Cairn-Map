@@ -264,7 +264,8 @@ const FR = {
   "smb": "Partagé en SMB", "smb_users": "Utilisateurs SMB",
   // 1.2: settings
   "Settings": "Réglages", "Machines": "Machines", "Machine": "Machine", "Kind": "Sorte", "Save": "Enregistrer", "Saving…": "Enregistrement…",
-  "Saved.": "Enregistré.", "Not saved: {e}": "Non enregistré : {e}", "off": "coupé",
+  "Saved.": "Enregistré.", "Not saved: {e}": "Non enregistré : {e}",
+  "Your session has ended: nothing was saved. Signing in again…": "Votre session est terminée : rien n'a été enregistré. Reconnexion…", "off": "coupé",
   "Saved on the server for everyone. The rest stays in the tools that own the data.": "Enregistré sur le serveur, pour tout le monde. Le reste se modifie dans les outils qui tiennent les données.",
   "Read only: no settings_file in the configuration.": "Lecture seule : pas de settings_file dans la configuration.",
   "A room or a rack per machine (type a new one to create it); once one is set, the Physical page can group by place.": "Une pièce ou une baie par machine (en taper une nouvelle la crée) ; dès qu'il y en a une, la page Physique peut regrouper par pièce.",
@@ -951,6 +952,8 @@ function settings() {
     <table class="mods">${mods}</table>
     <div class="save"><button type="submit"${ro}>${esc(t("Save"))}</button><span id="set-msg" role="status"></span></div></form>`;
 }
+// the proxy's sign-in has ended (Authelia answers 401, or sends a POST to its portal): go through it again
+const signedOut = r => r.type === "opaqueredirect" || r.status === 401;
 async function saveSettings(f) {
   const S = D.settings || {}, places = {}, kinds = {};
   for (const tr of f.querySelectorAll("tr[data-m]")) {
@@ -961,7 +964,8 @@ async function saveSettings(f) {
   const body = { places, kinds, disabled: [...f.querySelectorAll("[data-mod]")].filter(c => !c.checked).map(c => c.dataset.mod) };
   const msg = $("#set-msg"); msg.textContent = t("Saving…");
   try {
-    const r = await fetch("api/settings", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) });
+    const r = await fetch("api/settings", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body), redirect: "manual" });
+    if (signedOut(r)) { msg.textContent = t("Your session has ended: nothing was saved. Signing in again…"); return setTimeout(() => location.reload(), 2500); }
     if (!r.ok) throw new Error((await r.text()).trim() || r.status);
     VIEW = ""; await load(); $("#set-msg").textContent = t("Saved.");
   } catch (e) { msg.textContent = t("Not saved: {e}", { e: e.message }); }
@@ -1005,7 +1009,8 @@ function index() {
 
 async function load() {
   try {
-    const r = await fetch("api/map" + (PLACES ? "?places=1" : ""), { headers: { Accept: "application/json" } });
+    const r = await fetch("api/map" + (PLACES ? "?places=1" : ""), { headers: { Accept: "application/json" }, redirect: "manual" });
+    if (signedOut(r)) return location.reload();
     if (!r.ok) throw new Error(r.status + " " + r.statusText);
     D = await r.json();
   } catch (e) {

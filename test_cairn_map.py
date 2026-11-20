@@ -244,6 +244,8 @@ missing = {k for k in re.findall(r'\bt\("((?:[^"\\]|\\.)+)"\s*[,)]', html) if k 
 assert not missing, missing
 assert 'data-view="${v}"' in html and "startViewTransition" in html and "prefers-reduced-motion" in html  # lot 3: map view
 assert "api/panels/" in html and "<svg viewBox" in html and "function dash(" in html  # lot 4: curves, values on the map
+# 1.6.2: an ended proxy session (401, or a redirect to its portal) reloads the page instead of "Load failed"
+assert html.count('redirect: "manual" });\n    if (signedOut(r))') == 2
 assert "function palette(" in html and 'e.key === "?"' in html and "function trd(" in html  # lot 5: search, shortcuts, details translated
 frd = set(re.findall(r'"((?:[^"\\]|\\.)+)":', html[html.index("const FRD = {"):html.index("const FRD_RE")]))
 for mod in ("cairn_net", "proxmox", "prometheus", "traefik", "cairn_nas"):  # every fixed detail word has its French
