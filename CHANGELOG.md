@@ -3,8 +3,8 @@
 ## 1.6.1 (2026-11-20)
 
 - Cairn Net module: a switch with Wi-Fi interfaces (the export's `wifi`)
-  is an access point (kind `ap`, "borne Wi-Fi") in the Network and
-  Physical families, instead of a switch.
+  is an access point (kind `ap`) in the Network and Physical families,
+  instead of a switch.
 
 ## 1.6.0 (2026-11-10)
 
