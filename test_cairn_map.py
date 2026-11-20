@@ -164,6 +164,12 @@ assert sorted(N[j]["family"] for j in ph["servers/pve1"]["also"]) == ["hyperviso
 assert ("proxmox", "ok") in lv(ph["servers/pve1"]) and ph["network/lab"]["level"] == "down" and ph["network/access"]["level"] == "warn"
 assert [p["title"] for p in ph["servers/pve1"]["panels"] if p["type"] == "series"] == ["CPU"]       # curves by IP
 assert cm.physical(None, "x", "pc") == [] and cm.physical({}, "x", "pc")[-2]["name"] == "Computers"
+# 1.6.1: a Cairn Net switch with Wi-Fi interfaces is an access point, in the Network and Physical families
+ex = json.loads((HERE / "example" / "net-export.json").read_text(encoding="utf-8"))
+next(s for s in ex["switches"] if s["name"] == "access")["wifi"] = [{"name": "wifi1"}]
+ctx = cm.Ctx(HERE / "example", {}); ctx.get_json = lambda **k: ex
+ap = [x for x in cm.load_python(HERE / "modules" / "cairn_net.py").fetch({"physical": {"site": "Lab"}}, ctx)["nodes"] if x["name"] == "access"]
+assert len(ap) > 1 and {x["kind"] for x in ap} == {"ap"} and any(x["family"] == "physical" for x in ap)
 # 1.1: the same family by place (the page's switch, api/map?places=1): site -> place -> machine, "No place" last
 P = cm.App(cfg, HERE / "example").map(places=True)["nodes"]
 pp = {"/".join(x["path"]): x for x in P.values() if x["family"] == "physical"}

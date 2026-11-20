@@ -14,6 +14,7 @@ cpu_warn (default 90); uplink ({name (default "Internet"), via (the name of the 
 e.g. the ISP box), aliases (e.g. the address an external monitor watches)}: a first element under the
 router, ok while via's port runs); physical ({site, places, kinds}: the switches, and the devices of the kinds
 in physical_kinds (default ["ap", "nas"]), in the Physical family; see "physical" in cairn-map.py).
+A switch with Wi-Fi interfaces (the export's "wifi") is an access point, kind "ap".
 """
 import ipaddress
 
@@ -31,6 +32,7 @@ def fetch(opt, ctx):
     rows = lambda s, k: s.get(k) or []
     router = by.get(opt.get("router")) or max(sws, key=lambda s: len(rows(s, "addresses")))
     edit = opt.get("edit_url", "")
+    kind = lambda s: "router" if s is router else "ap" if s.get("wifi") else "switch"
 
     # VLANs of each switch's bridge table; the bridge's own (untagged) VLAN carries the bridge's address
     vlans_of = {s["name"]: {} for s in sws}  # switch -> vid -> set of member ports
@@ -134,7 +136,7 @@ def fetch(opt, ctx):
             if not members and not ports:
                 continue
             snode = f"{vnode}:{s['name'].lower()}"
-            nodes.append({"id": snode, "family": "network", "parent": vnode, "name": s["name"], "kind": "router" if s is router else "switch",
+            nodes.append({"id": snode, "family": "network", "parent": vnode, "name": s["name"], "kind": kind(s),
                           "aliases": [s["name"]], "attrs": {"order": 0 if s is router else 1, "ports": len(ports | trunks),
                                                             "devices": sum(used.get((vid, s["name"], p), 0) for p in ports)}})
             if edit:
@@ -163,7 +165,7 @@ def fetch(opt, ctx):
     ph, phys = opt.get("physical"), getattr(ctx, "physical", None)
     if ph and phys:
         for s in every:
-            nodes += phys(ph, s["name"], "router" if s is router else "switch", [s["name"]], {"model": (s.get("resource") or {}).get("board-name", "")} if s.get("resource") else {})
+            nodes += phys(ph, s["name"], kind(s), [s["name"]], {"model": (s.get("resource") or {}).get("board-name", "")} if s.get("resource") else {})
             h = live.get(s["name"]) or (("down", "Cairn Net · " + w("unreachable: {e}", e=s["error"])) if s.get("error") else None)
             if h:
                 status.append({"id": "phys:" + s["name"].lower(), "level": h[0], "detail": h[1]})
